@@ -1,5 +1,8 @@
+
 import Navbar from './components/Navbar.jsx';
 import Hero from './sections/Hero.jsx';
+import Projects from './sections/Projects.jsx';
+import Experience from './sections/Experience.jsx';
 
 function App() {
     return (
@@ -8,92 +11,67 @@ function App() {
 
             <main>
                 <Hero />
-
-                <section
-                    id="projects"
-                    className="mx-auto max-w-7xl px-6 py-24 lg:px-12"
-                >
-                    <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-teal-400">
-                        Selected Work
-                    </p>
-
-                    <h2 className="text-3xl font-bold">
-                        Featured Projects
-                    </h2>
-
-                    <p className="mt-4 max-w-2xl text-slate-400">
-                        Explore the software projects and applications
-                        I've developed.
-                    </p>
-
-                    <a
-                        href="https://github.com/Atinos31"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-6 inline-block text-teal-400 hover:underline"
-                    >
-                        View my GitHub projects →
-                    </a>
-                </section>
-
-                <section
-                    id="experience"
-                    className="border-y border-white/10 bg-white/5"
-                >
-                    <div className="mx-auto max-w-7xl px-6 py-24 lg:px-12">
-                        <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-teal-400">
-                            My Background
-                        </p>
-
-                        <h2 className="text-3xl font-bold">
-                            Professional Experience
-                        </h2>
-
-                        <p className="mt-4 max-w-2xl leading-relaxed text-slate-400">
-                            Professional experience developing web applications
-                            using Python, Django, Wagtail, WordPress,
-                            PostgreSQL, and JavaScript.
-                        </p>
-                    </div>
-                </section>
+                <Projects />
+                <Experience />
 
                 <section
                     id="contact"
                     className="mx-auto max-w-7xl px-6 py-24 lg:px-12"
                 >
-                    <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-teal-400">
+                    <p
+                        className="mb-4 text-sm font-semibold uppercase
+                       tracking-[0.25em] text-teal-400"
+                    >
                         Get in Touch
                     </p>
 
-                    <h2 className="text-3xl font-bold">
-                        Let's Work Together
+                    <h2 className="text-3xl font-bold sm:text-4xl">
+                        Let's Build Something Great
                     </h2>
 
-                    <p className="mt-4 text-slate-400">
-                        Interested in discussing a development opportunity?
+                    <p className="mt-5 max-w-xl leading-relaxed text-slate-400">
+                        I'm interested in backend and full-stack
+                        development opportunities, including remote
+                        and hybrid roles.
                     </p>
 
-                    <a
-                        href="https://github.com/Atinos31"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-6 inline-block text-teal-400 hover:underline"
-                    >
-                        Connect with me on GitHub ↗
-                    </a>
+                    <div className="mt-8 flex flex-wrap gap-4">
+                        <a
+                            href="mailto:atinos31.dev@gmail.com"
+                            className="rounded-lg bg-teal-400 px-6 py-3
+                         font-semibold text-slate-950
+                         transition hover:bg-teal-300"
+                        >
+                            Email Me →
+                        </a>
+
+                        <a
+                            href="https://github.com/Atinos31"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="rounded-lg border border-white/20
+                         px-6 py-3 font-semibold
+                         transition hover:border-teal-400
+                         hover:text-teal-300"
+                        >
+                            GitHub ↗
+                        </a>
+                    </div>
                 </section>
             </main>
 
-            <footer className="border-t border-white/10 px-6 py-6 text-center text-sm text-slate-500">
+            <footer
+                className="border-t border-white/10 px-6 py-6
+                   text-center text-sm text-slate-500"
+            >
                 © {new Date().getFullYear()} Sandra Atino.
-                Built with React and Three.js.
+                Built with React, Tailwind CSS and Three.js.
             </footer>
         </div>
     );
 }
 
 export default App;
-
 
 
 
