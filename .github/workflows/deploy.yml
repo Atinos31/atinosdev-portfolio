@@ -35,7 +35,7 @@ jobs:
 
       - name: Build portfolio
         env:
-          VITE_BASE_PATH: /atinosdev-portfolio/
+          VITE_BASE_PATH: /
         run: npm run build
 
       - name: Upload website files
