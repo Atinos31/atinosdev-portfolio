@@ -1,9 +1,10 @@
 
 import Navbar from './components/Navbar.jsx';
-import Hero from './sections/Hero.jsx';
-import Projects from './sections/Projects.jsx';
-import Experience from './sections/Experience.jsx';
-import About from './sections/About.jsx';
+import Hero from './sections/hero.jsx';
+import Projects from './sections/projects.jsx';
+import Experience from './sections/experience.jsx';
+import About from './sections/about.jsx';
+
 
 
 function App() {
