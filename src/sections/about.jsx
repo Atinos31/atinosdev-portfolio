@@ -54,7 +54,7 @@ export default function About() {
                     <div className="mt-8 flex flex-wrap gap-4">
                         {/* English CV */}
                         <a
-                            href="/cv/Sandra_Atino_CV_English.pdf"
+                            href={`${import.meta.env.BASE_URL}cv/Sandra_Atino_CV_English.pdf`}
                             download="Sandra_Atino_CV_English.pdf"
                             className="rounded-lg bg-teal-400 px-5 py-3 font-semibold text-slate-950 transition hover:bg-teal-300"
                         >
@@ -63,7 +63,7 @@ export default function About() {
 
                         {/* French CV */}
                         <a
-                            href="/cv/Sandra_Atino_CV_French.pdf"
+                            href={`${import.meta.env.BASE_URL}cv/Sandra_Atino_CV_French.pdf`}
                             download="Sandra_Atino_CV_French.pdf"
                             className="rounded-lg border border-teal-400/40 px-5 py-3 font-semibold text-teal-300 transition hover:bg-teal-400/10"
                         >

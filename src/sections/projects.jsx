@@ -23,7 +23,7 @@ const projects = [
             'Deepl API',
             'Matomo Analytics',
         ],
-        image: '/images/projects/agrinfo.png',
+        image: `${import.meta.env.BASE_URL}images/projects/agrinfo.png`,
         website: 'https://agrinfo.eu/',
         github: null,
         status: 'Professional Work',
@@ -49,7 +49,7 @@ const projects = [
 
 
         ],
-        image: '/images/projects/agrinnovators.png',
+        image: `${import.meta.env.BASE_URL}images/projects/agrinnovators.png`,
         website: 'https://agrinnovators.org/',
         github: null,
         status: 'Professional Work',
@@ -73,7 +73,7 @@ const projects = [
             'ChromaDB',
             'Claude Api'
         ],
-        image: '/images/projects/ai-support.png',
+      image: `${import.meta.env.BASE_URL}images/projects/ai-support.png`,
         website: null,
         github: 'https://github.com/Atinos31/django-ai-employees',
         status: 'In Development',
