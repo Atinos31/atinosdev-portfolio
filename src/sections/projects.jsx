@@ -36,7 +36,7 @@ const projects = [
         number: '02',
         category: 'Professional Project',
         title: 'Agrinnovators — Agrifood Entrepreneurship Hub',
-        description:'A digital platform by COLEAD connecting agrifood entrepreneurs with industry insights, innovation, networking opportunities, and business support services. As part of the development team, I contributed to developing and maintaining the platform.',
+        description:'Independently developed a multilingual agrifood entrepreneurship platform , Built custom WordPress functionality including content types, ACF configurations, dynamic queries, filtering, user registration and plugin integrations, alongside responsive frontend development.',
         technologies: [
             'WordPress',
             'PHP',

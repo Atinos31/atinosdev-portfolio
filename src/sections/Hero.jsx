@@ -21,7 +21,7 @@ export default function Hero() {
                 </h1>
 
                 <p className="mt-7 max-w-xl text-lg leading-relaxed text-slate-300">
-                    I build reliable web applications, backend systems,
+                    I build reliable frontend web applications, backend systems,
                     and practical digital solutions.
                 </p>
 
