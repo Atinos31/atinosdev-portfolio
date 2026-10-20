@@ -1,0 +1,57 @@
+
+{
+  "projects": {
+    "eyebrow": "Selected Work",
+    "title": "Engineering with purpose",
+    "description": "From professional web platforms to independent AI experiments, here is how I translate requirements into working software.",
+    "chooseProject": "Choose a project",
+    "visitWebsite": "Visit Website",
+    "viewCode": "View Code",
+    "caseStudy": "Project Case Study",
+    "contribution": "My Contribution",
+    "technologies": "Technologies",
+    "developmentInProgress": "Development in progress",
+    "showcase": "Project showcase",
+    "imageAlt": "{{name}} website screenshot",
+    "learning": "Learning",
+    "items": {
+      "agrinfo": {
+        "eyebrow": "PROFESSIONAL PROJECT · FULL-STACK",
+        "tagline": "Supporting access to regulatory intelligence",
+        "overview": "AGRINFO helps agri-food stakeholders understand changing EU regulatory requirements and their implications for market access.",
+        "role": "Full-stack development team member",
+        "contributions": [
+          "Contributed to development of the AGRINFO platform.",
+          "Worked within a Python, Django and Wagtail-based stack.",
+          "Used PostgreSQL and frontend technologies in a content-rich application.",
+          "Collaborated within a professional development environment."
+        ]
+      },
+      "agrinnovators": {
+        "eyebrow": "PROFESSIONAL PROJECT · WORDPRESS",
+        "tagline": "Building a platform for agri-food innovation",
+        "overview": "A digital platform supporting agri-food innovation, entrepreneurship and knowledge sharing.",
+        "role": "Website developer — end-to-end implementation",
+        "contributions": [
+          "Implemented the website using WordPress and Divi.",
+          "Developed custom PHP, JavaScript, jQuery and CSS functionality.",
+          "Created custom post types, ACF fields and dynamic content queries.",
+          "Implemented search, filtering and user registration features.",
+          "Supported multilingual content with WPML."
+        ]
+      },
+      "ai-employees": {
+        "eyebrow": "PERSONAL PROJECT · IN PROGRESS",
+        "tagline": "Exploring intelligent customer support systems",
+        "overview": "A Django project exploring the foundations of AI-assisted customer support, order management and intelligent workflows.",
+        "role": "Independent developer",
+        "contributions": [
+          "Structured Django applications for orders and support.",
+          "Implemented domain models for products, orders and refund requests.",
+          "Developed conversation, message and agent log data structures.",
+          "Continuing work on LLM integration, agent workflows and automation."
+        ]
+      }
+    }
+  }
+}

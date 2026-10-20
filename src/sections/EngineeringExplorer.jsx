@@ -1,5 +1,7 @@
 
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+
 import {
     Code2,
     BrainCircuit,
@@ -20,8 +22,44 @@ const areaIcons = {
     creative: Orbit,
 };
 
-export default function EngineeringExplorer() {
-    const [selectedId, setSelectedId] = useState('web');
+// Translate status labels without changing technology names.
+function translateTechnology(technology, t) {
+    return technology
+        .replace(
+            ' — Learning',
+            ` — ${t('engineering.statuses.learning')}`
+        )
+        .replace(
+            ' — Exploring',
+            ` — ${t('engineering.statuses.exploring')}`
+        );
+}
+
+// Identify known projects by their existing URLs.
+// Project links themselves are never translated.
+function translateProjectName(project, t) {
+    const url = project.url || '';
+
+    if (url.includes('agrinfo.eu')) {
+        return t('engineering.projectNames.agrinfo');
+    }
+
+    if (url.includes('agrinnovators.org')) {
+        return t('engineering.projectNames.agrinnovators');
+    }
+
+    if (url.includes('django-ai-employees')) {
+        return t('engineering.projectNames.aiEmployees');
+    }
+
+    if (url.includes('atinosdev-portfolio')) {
+        return t('engineering.projectNames.portfolio');
+    }
+
+    return project.name;
+}
+
+function useReducedMotion() {
     const [reducedMotion, setReducedMotion] =
         useState(false);
 
@@ -36,12 +74,27 @@ export default function EngineeringExplorer() {
 
         update();
 
-        media.addEventListener('change', update);
+        if (media.addEventListener) {
+            media.addEventListener('change', update);
 
-        return () => {
-            media.removeEventListener('change', update);
-        };
+            return () => {
+                media.removeEventListener('change', update);
+            };
+        }
+
+        return undefined;
     }, []);
+
+    return reducedMotion;
+}
+
+export default function EngineeringExplorer() {
+    const { t } = useTranslation();
+
+    const [selectedId, setSelectedId] =
+        useState('web');
+
+    const reducedMotion = useReducedMotion();
 
     const selectedArea =
         engineeringAreas.find(
@@ -50,13 +103,33 @@ export default function EngineeringExplorer() {
 
     const SelectedIcon = areaIcons[selectedArea.id];
 
+    function areaTitle(area) {
+        return t(`engineering.areas.${area.id}.title`, {
+            defaultValue: area.title,
+        });
+    }
+
+    function areaSubtitle(area) {
+        return t(`engineering.areas.${area.id}.subtitle`, {
+            defaultValue: area.subtitle,
+        });
+    }
+
+    function areaDescription(area) {
+        return t(`engineering.areas.${area.id}.description`, {
+            defaultValue: area.description,
+        });
+    }
+
     return (
         <section
             id="engineering"
             className="relative isolate overflow-hidden
                  bg-[#080f1e] py-20 sm:py-28"
         >
+            {/* Subtle background glow */}
             <div
+                aria-hidden="true"
                 className="pointer-events-none absolute
                    left-1/2 top-1/3 -z-10
                    h-80 w-80 -translate-x-1/2
@@ -65,14 +138,14 @@ export default function EngineeringExplorer() {
             />
 
             <div className="mx-auto max-w-7xl px-6 lg:px-12">
-                {/* Introduction */}
+                {/* INTRODUCTION */}
                 <div className="max-w-3xl">
                     <p
                         className="text-xs font-semibold
                        uppercase tracking-[0.25em]
                        text-teal-400"
                     >
-                        Explore My Engineering
+                        {t('engineering.eyebrow')}
                     </p>
 
                     <h2
@@ -80,25 +153,23 @@ export default function EngineeringExplorer() {
                        tracking-tight text-white
                        sm:text-4xl"
                     >
-                        What can we build with technology?
+                        {t('engineering.title')}
                     </h2>
 
                     <p
                         className="mt-5 leading-relaxed
                        text-slate-400"
                     >
-                        Explore my experience in web engineering,
-                        my developing AI and data specializations,
-                        and the interactive experiences I create.
+                        {t('engineering.description')}
                     </p>
                 </div>
 
-                {/* Explorer layout */}
+                {/* EXPLORER LAYOUT */}
                 <div
                     className="mt-12 grid items-center gap-8
-                     lg:grid-cols-[1fr_1fr]"
+                     lg:grid-cols-2"
                 >
-                    {/* LEFT: Three.js visualization */}
+                    {/* LEFT: THREE.JS VISUALIZATION */}
                     <div
                         className="min-w-0 overflow-hidden
                        rounded-3xl border
@@ -115,18 +186,19 @@ export default function EngineeringExplorer() {
                             className="px-5 pb-4 text-center
                          text-xs text-slate-500"
                         >
-                            Select a 3D object to explore an
-                            engineering discipline.
+                            {t('engineering.instruction')}
                         </p>
                     </div>
 
-                    {/* RIGHT: Interactive information */}
+                    {/* RIGHT: INTERACTIVE INFORMATION */}
                     <div className="min-w-0">
-                        {/* Accessible category buttons */}
+                        {/* Engineering category buttons */}
                         <div
                             className="grid grid-cols-2 gap-3"
                             role="group"
-                            aria-label="Engineering disciplines"
+                            aria-label={t(
+                                'engineering.disciplinesLabel'
+                            )}
                         >
                             {engineeringAreas.map((area) => {
                                 const Icon = areaIcons[area.id];
@@ -137,7 +209,9 @@ export default function EngineeringExplorer() {
                                     <button
                                         key={area.id}
                                         type="button"
-                                        onClick={() => setSelectedId(area.id)}
+                                        onClick={() =>
+                                            setSelectedId(area.id)
+                                        }
                                         aria-pressed={selected}
                                         className={`rounded-xl border
                                 p-4 text-left
@@ -161,14 +235,14 @@ export default function EngineeringExplorer() {
                                  text-sm font-semibold
                                  text-white"
                                         >
-                      {area.title}
+                      {areaTitle(area)}
                     </span>
                                     </button>
                                 );
                             })}
                         </div>
 
-                        {/* Details panel */}
+                        {/* SELECTED AREA DETAILS */}
                         <div
                             className="mt-5 rounded-2xl
                          border border-white/10
@@ -195,14 +269,14 @@ export default function EngineeringExplorer() {
                                         className="text-xl font-semibold
                                text-white"
                                     >
-                                        {selectedArea.title}
+                                        {areaTitle(selectedArea)}
                                     </h3>
 
                                     <p
                                         className="mt-1 text-sm
                                text-teal-300"
                                     >
-                                        {selectedArea.subtitle}
+                                        {areaSubtitle(selectedArea)}
                                     </p>
                                 </div>
                             </div>
@@ -211,17 +285,17 @@ export default function EngineeringExplorer() {
                                 className="mt-6 leading-relaxed
                            text-slate-300"
                             >
-                                {selectedArea.description}
+                                {areaDescription(selectedArea)}
                             </p>
 
-                            {/* Technologies */}
+                            {/* TECHNOLOGIES */}
                             <div className="mt-6">
                                 <h4
                                     className="text-xs font-semibold
                              uppercase tracking-widest
                              text-slate-400"
                                 >
-                                    Technologies
+                                    {t('engineering.technologies')}
                                 </h4>
 
                                 <div className="mt-3 flex flex-wrap gap-2">
@@ -234,21 +308,24 @@ export default function EngineeringExplorer() {
                                    bg-white/5 px-3 py-1.5
                                    text-xs text-slate-200"
                                             >
-                        {technology}
+                        {translateTechnology(
+                            technology,
+                            t
+                        )}
                       </span>
                                         )
                                     )}
                                 </div>
                             </div>
 
-                            {/* Projects */}
+                            {/* RELATED PROJECTS */}
                             <div className="mt-7">
                                 <h4
                                     className="text-xs font-semibold
                              uppercase tracking-widest
                              text-slate-400"
                                 >
-                                    Related Projects
+                                    {t('engineering.relatedProjects')}
                                 </h4>
 
                                 {selectedArea.projects.length > 0 ? (
@@ -256,7 +333,7 @@ export default function EngineeringExplorer() {
                                         {selectedArea.projects.map(
                                             (project) => (
                                                 <a
-                                                    key={project.name}
+                                                    key={project.url}
                                                     href={project.url}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
@@ -269,7 +346,12 @@ export default function EngineeringExplorer() {
                                      hover:border-teal-400/50
                                      hover:text-teal-300"
                                                 >
-                                                    {project.name}
+                          <span>
+                            {translateProjectName(
+                                project,
+                                t
+                            )}
+                          </span>
 
                                                     <ExternalLink
                                                         size={15}
@@ -284,9 +366,7 @@ export default function EngineeringExplorer() {
                                         className="mt-3 text-sm
                                text-slate-400"
                                     >
-                                        This is a developing area.
-                                        Project demonstrations will
-                                        be added as they're completed.
+                                        {t('engineering.noProjects')}
                                     </p>
                                 )}
                             </div>
@@ -294,7 +374,7 @@ export default function EngineeringExplorer() {
                     </div>
                 </div>
 
-                {/* Section footer */}
+                {/* SECTION FOOTER */}
                 <div
                     className="mt-10 flex flex-wrap
                      items-center justify-between
@@ -302,8 +382,7 @@ export default function EngineeringExplorer() {
                      pt-6"
                 >
                     <p className="text-sm text-slate-400">
-                        Production experience meets
-                        continuous learning.
+                        {t('engineering.footer')}
                     </p>
 
                     <a
@@ -313,7 +392,7 @@ export default function EngineeringExplorer() {
                        text-teal-300
                        hover:text-teal-200"
                     >
-                        Explore My Projects
+                        {t('engineering.exploreProjects')}
 
                         <ArrowUpRight
                             size={17}

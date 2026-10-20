@@ -1,0 +1,57 @@
+
+{
+  "skills": {
+    "eyebrow": "Technologies et expertise",
+    "title": "Mes compétences techniques",
+    "description": "Les technologies que j'utilise pour développer des applications web et des systèmes backend, ainsi que les outils que j'explore pour évoluer vers l'intelligence artificielle et l'ingénierie des données.",
+    "filtersLabel": "Filtres des technologies",
+    "categories": {
+      "all": "Tout",
+      "backend": "Backend",
+      "frontend": "Frontend",
+      "databases": "Bases de données",
+      "cms": "CMS",
+      "tools": "Outils et déploiement",
+      "ai": "IA et données"
+    },
+    "statuses": {
+      "learning": "En apprentissage",
+      "exploring": "En exploration"
+    },
+    "learnAbout": "En savoir plus sur {{name}}",
+    "detailsLabel": "Détails de {{name}}",
+    "close": "Fermer",
+    "notice": "Je développe mes compétences professionnelles en Python et en développement full stack vers les applications intégrant l'intelligence artificielle, les workflows intelligents et l'ingénierie des données. Les mentions « En apprentissage » et « En exploration » indiquent les technologies que je suis encore en train d'approfondir.",
+    "descriptions": {
+      "python": "Développement backend, logique métier, automatisation et applications Python.",
+      "django": "Développement d'applications web, de services connectés aux bases de données et de systèmes backend.",
+      "php": "Développement de fonctionnalités WordPress personnalisées, de modèles de pages, de requêtes et d'intégrations.",
+      "rest": "Développement et intégration d'API entre des applications web et des systèmes externes.",
+      "javascript": "Développement de fonctionnalités interactives et de comportements dynamiques pour les interfaces web.",
+      "react": "Création de composants d'interface réutilisables, gestion de l'état et développement d'applications frontend modernes.",
+      "html": "Structuration sémantique des pages et création de balisages accessibles.",
+      "css": "Mise en page responsive, styles personnalisés et présentation des interfaces.",
+      "tailwind": "Développement d'interfaces responsives avec une approche CSS basée sur des classes utilitaires.",
+      "bootstrap": "Création de composants et de mises en page responsives.",
+      "jquery": "Développement d'interactions personnalisées et de fonctionnalités dynamiques pour les sites WordPress.",
+      "postgresql": "Modélisation de données relationnelles, requêtes SQL et applications Django connectées aux bases de données.",
+      "mysql": "Requêtes SQL et stockage de données relationnelles.",
+      "wordpress": "Développement WordPress personnalisé, structuration de contenu et intégration de fonctionnalités web.",
+      "wagtail": "Développement de sites avec gestion de contenu à l'aide de Django et Wagtail.",
+      "divi": "Création de sites Divi personnalisés avec PHP, JavaScript et des styles responsives.",
+      "acf": "Utilisation d'Advanced Custom Fields pour structurer le contenu WordPress.",
+      "wpml": "Gestion du contenu multilingue et des fonctionnalités de traduction dans WordPress.",
+      "git": "Gestion des versions, branches Git et développement collaboratif.",
+      "github": "Gestion des dépôts de code, collaboration et automatisation avec GitHub Actions.",
+      "vite": "Outils modernes pour les applications React et création de versions de production.",
+      "docker": "Apprentissage de la conteneurisation et du déploiement des applications.",
+      "llm": "Apprentissage de l'intégration des API de modèles de langage, des sorties structurées et des appels d'outils.",
+      "agents": "Développement de connaissances sur les workflows d'agents IA, leurs outils et l'automatisation.",
+      "rag": "Exploration de la génération augmentée par récupération (RAG) et des réponses fondées sur des documents.",
+      "huggingface": "Exploration des modèles ouverts, des jeux de données, de Transformers et de l'inférence.",
+      "pandas": "Apprentissage de l'analyse, du nettoyage et de la transformation des données avec Python.",
+      "vector": "Exploration des embeddings et de la recherche sémantique pour les applications IA.",
+      "pipelines": "Apprentissage du traitement des données et des workflows ETL."
+    }
+  }
+}

@@ -1,6 +1,6 @@
 
-
 import { useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import {
     SiPython,
@@ -34,313 +34,299 @@ import {
     FaRegSmile,
 } from 'react-icons/fa';
 
+// Keep the existing filename exactly as it appears in your project.
 import TechStackBackground from '../components/TechStackBackgroud.jsx';
 
-
-// ---------------------------------------
-// TECHNOLOGY DATA
-// ---------------------------------------
-
+// Technology information that does not change with language.
+// Text descriptions are loaded from skills.json.
 const skills = [
     // BACKEND
     {
+        id: 'python',
         name: 'Python',
-        category: 'Backend',
+        category: 'backend',
         icon: SiPython,
         color: '#3776AB',
-        description:
-            'Backend development, business logic, automation, and Python applications.',
     },
     {
+        id: 'django',
         name: 'Django',
-        category: 'Backend',
+        category: 'backend',
         icon: SiDjango,
         color: '#44B78B',
-        description:
-            'Building web applications, database-backed services, and backend systems.',
     },
     {
+        id: 'php',
         name: 'PHP',
-        category: 'Backend',
+        category: 'backend',
         icon: SiPhp,
         color: '#8892BF',
-        description:
-            'Custom WordPress functionality, templates, queries, and integrations.',
     },
     {
+        id: 'rest',
         name: 'REST APIs',
-        category: 'Backend',
+        category: 'backend',
         icon: FaCode,
         color: '#2DD4BF',
-        description:
-            'Developing and integrating APIs between web applications and external systems.',
     },
 
     // FRONTEND
     {
+        id: 'javascript',
         name: 'JavaScript',
-        category: 'Frontend',
+        category: 'frontend',
         icon: SiJavascript,
         color: '#F7DF1E',
-        description:
-            'Interactive frontend functionality and application behaviour.',
     },
     {
+        id: 'react',
         name: 'React',
-        category: 'Frontend',
+        category: 'frontend',
         icon: SiReact,
         color: '#61DAFB',
-        description:
-            'Reusable UI components, state management, and modern frontend applications.',
     },
     {
+        id: 'html',
         name: 'HTML5',
-        category: 'Frontend',
+        category: 'frontend',
         icon: SiHtml5,
         color: '#E34F26',
-        description:
-            'Semantic page structure and accessible markup.',
     },
     {
+        id: 'css',
         name: 'CSS3',
-        category: 'Frontend',
+        category: 'frontend',
         icon: SiCss,
         color: '#1572B6',
-        description:
-            'Responsive layouts, custom styling, and interface presentation.',
     },
     {
+        id: 'tailwind',
         name: 'Tailwind CSS',
-        category: 'Frontend',
+        category: 'frontend',
         icon: SiTailwindcss,
         color: '#06B6D4',
-        description:
-            'Building responsive interfaces with utility-first CSS.',
     },
     {
+        id: 'bootstrap',
         name: 'Bootstrap',
-        category: 'Frontend',
+        category: 'frontend',
         icon: SiBootstrap,
         color: '#7952B3',
-        description:
-            'Responsive interface components and layouts.',
     },
     {
+        id: 'jquery',
         name: 'jQuery',
-        category: 'Frontend',
+        category: 'frontend',
         icon: SiJquery,
         color: '#78CFF5',
-        description:
-            'Custom interactions and dynamic functionality in WordPress websites.',
     },
 
     // DATABASES
     {
+        id: 'postgresql',
         name: 'PostgreSQL',
-        category: 'Databases',
+        category: 'databases',
         icon: SiPostgresql,
         color: '#699EBD',
-        description:
-            'Relational data modelling, queries, and database-backed Django applications.',
     },
     {
+        id: 'mysql',
         name: 'MySQL',
-        category: 'Databases',
+        category: 'databases',
         icon: SiMysql,
         color: '#F29111',
-        description:
-            'SQL queries and relational data storage.',
     },
 
     // CMS
     {
+        id: 'wordpress',
         name: 'WordPress',
-        category: 'CMS',
+        category: 'cms',
         icon: SiWordpress,
         color: '#38BDF8',
-        description:
-            'Custom WordPress development, content structures, and website integrations.',
     },
     {
+        id: 'wagtail',
         name: 'Wagtail',
-        category: 'CMS',
+        category: 'cms',
         icon: FaFeatherAlt,
         color: '#34C7B5',
-        description:
-            'Building content-managed websites using Django and Wagtail.',
     },
     {
+        id: 'divi',
         name: 'Divi',
-        category: 'CMS',
+        category: 'cms',
         icon: FaCubes,
         color: '#A78BFA',
-        description:
-            'Custom Divi websites with PHP, JavaScript, and responsive styling.',
     },
     {
+        id: 'acf',
         name: 'ACF',
-        category: 'CMS',
+        category: 'cms',
         icon: FaDatabase,
         color: '#60A5FA',
-        description:
-            'Advanced Custom Fields for structured WordPress content.',
     },
     {
+        id: 'wpml',
         name: 'WPML',
-        category: 'CMS',
+        category: 'cms',
         icon: FaNetworkWired,
         color: '#F59E0B',
-        description:
-            'Multilingual content and functionality in WordPress.',
     },
 
     // TOOLS & DEPLOYMENT
     {
+        id: 'git',
         name: 'Git',
-        category: 'Tools & Deployment',
+        category: 'tools',
         icon: SiGit,
         color: '#F05032',
-        description:
-            'Version control, branching, and collaborative development.',
     },
     {
+        id: 'github',
         name: 'GitHub',
-        category: 'Tools & Deployment',
+        category: 'tools',
         icon: SiGithub,
         color: '#FFFFFF',
-        description:
-            'Source repositories, collaboration, and GitHub Actions.',
     },
     {
+        id: 'vite',
         name: 'Vite',
-        category: 'Tools & Deployment',
+        category: 'tools',
         icon: SiVite,
         color: '#A78BFA',
-        description:
-            'Modern React application tooling and production builds.',
     },
     {
+        id: 'docker',
         name: 'Docker',
-        category: 'Tools & Deployment',
+        category: 'tools',
         icon: SiDocker,
         color: '#2496ED',
-        description:
-            'Learning container-based application packaging and deployment.',
-        status: 'Learning',
+        status: 'learning',
     },
 
     // AI & DATA
     {
+        id: 'llm',
         name: 'LLM APIs',
-        category: 'AI & Data',
+        category: 'ai',
         icon: FaBrain,
         color: '#C084FC',
-        description:
-            'Learning language model API integration, structured outputs, and tool calling.',
-        status: 'Learning',
+        status: 'learning',
     },
     {
+        id: 'agents',
         name: 'AI Agents',
-        category: 'AI & Data',
+        category: 'ai',
         icon: FaCubes,
         color: '#A78BFA',
-        description:
-            'Developing knowledge of AI workflows, agent tools, and automation.',
-        status: 'Learning',
+        status: 'learning',
     },
     {
+        id: 'rag',
         name: 'RAG',
-        category: 'AI & Data',
+        category: 'ai',
         icon: FaNetworkWired,
         color: '#5EEAD4',
-        description:
-            'Exploring retrieval-augmented generation and document-grounded responses.',
-        status: 'Exploring',
+        status: 'exploring',
     },
     {
+        id: 'huggingface',
         name: 'Hugging Face',
-        category: 'AI & Data',
+        category: 'ai',
         icon: FaRegSmile,
         color: '#FFCD34',
-        description:
-            'Exploring open models, datasets, Transformers, and inference.',
-        status: 'Exploring',
+        status: 'exploring',
     },
     {
+        id: 'pandas',
         name: 'Pandas',
-        category: 'AI & Data',
+        category: 'ai',
         icon: SiPandas,
         color: '#E70488',
-        description:
-            'Learning data analysis, cleaning, and transformation with Python.',
-        status: 'Learning',
+        status: 'learning',
     },
     {
+        id: 'vector',
         name: 'Vector Search',
-        category: 'AI & Data',
+        category: 'ai',
         icon: FaDatabase,
         color: '#2DD4BF',
-        description:
-            'Exploring embeddings and semantic search for AI applications.',
-        status: 'Exploring',
+        status: 'exploring',
     },
     {
+        id: 'pipelines',
         name: 'Data Pipelines',
-        category: 'AI & Data',
+        category: 'ai',
         icon: FaServer,
         color: '#38BDF8',
-        description:
-            'Learning data processing and ETL workflows.',
-        status: 'Learning',
+        status: 'learning',
     },
 ];
 
 const categories = [
-    'All',
-    'Backend',
-    'Frontend',
-    'Databases',
-    'CMS',
-    'Tools & Deployment',
-    'AI & Data',
+    'all',
+    'backend',
+    'frontend',
+    'databases',
+    'cms',
+    'tools',
+    'ai',
 ];
 
 const hexagon =
     'polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%)';
 
-// ---------------------------------------
-// INTERACTIVE 3D SKILL TILE
-// ---------------------------------------
-
-function SkillTile({ skill, selected, onSelect }) {
-    const Icon = skill.icon; // Properly set icon component
+// Interactive 3D hexagonal tile
+function SkillTile({
+                       skill,
+                       selected,
+                       onSelect,
+                   }) {
+    const { t } = useTranslation();
     const tileRef = useRef(null);
+
+    const description = t(
+        `skills.descriptions.${skill.id}`
+    );
 
     function resetTilt() {
         if (!tileRef.current) return;
-        tileRef.current.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0px)';
+
+        tileRef.current.style.transform =
+            'rotateX(0deg) rotateY(0deg) translateZ(0px)';
     }
 
     function handlePointerMove(event) {
         if (event.pointerType !== 'mouse') return;
 
-        // Respect user's motion preferences
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        if (
+            window.matchMedia(
+                '(prefers-reduced-motion: reduce)'
+            ).matches
+        ) {
+            return;
+        }
 
         const tile = tileRef.current;
         const rect = tile?.getBoundingClientRect();
 
-        if (!rect) return;
+        if (!tile || !rect) return;
 
-        const x = (event.clientX - rect.left) / rect.width - 0.5;
-        const y = (event.clientY - rect.top) / rect.height - 0.5;
+        const x =
+            (event.clientX - rect.left) / rect.width - 0.5;
+
+        const y =
+            (event.clientY - rect.top) / rect.height - 0.5;
 
         tile.style.transform = `
-            rotateX(${-y * 18}deg)
-            rotateY(${x * 18}deg)
-            translateZ(12px)
-        `;
+      rotateX(${-y * 18}deg)
+      rotateY(${x * 18}deg)
+      translateZ(12px)
+    `;
     }
+
+    const Icon = skill.icon;
 
     return (
         <button
@@ -350,42 +336,64 @@ function SkillTile({ skill, selected, onSelect }) {
             onPointerLeave={resetTilt}
             onBlur={resetTilt}
             aria-pressed={selected}
-            aria-label={`Learn about ${skill.name}`}
-            title={skill.description}
-            className="group flex min-w-0 flex-col items-center gap-3 rounded-xl
-                       p-1 text-center focus-visible:outline-2
-                       focus-visible:outline-teal-400 motion-reduce:transition-none"
+            aria-label={t('skills.learnAbout', {
+                name: skill.name,
+            })}
+            title={description}
+            className="group flex min-w-0 flex-col
+                 items-center gap-3 rounded-xl
+                 p-1 text-center
+                 focus-visible:outline-2
+                 focus-visible:outline-teal-400
+                 motion-reduce:transition-none"
             style={{ perspective: '750px' }}
         >
+            {/* Hexagonal icon */}
             <div
                 ref={tileRef}
-                className={`flex aspect-square w-full max-w-28 items-center justify-center p-[2px]
-                          ${selected ? 'bg-teal-400 drop-shadow-[0_0_15px_rgba(45,212,191,0.5)]'
-                    : 'bg-[#31566B] group-hover:bg-teal-400'}`}
+                className={`flex aspect-square w-full
+                    max-w-28 items-center
+                    justify-center p-[2px] ${
+                    selected
+                        ? 'bg-teal-400 drop-shadow-[0_0_15px_rgba(45,212,191,0.5)]'
+                        : 'bg-[#31566B] group-hover:bg-teal-400'
+                }`}
                 style={{
                     clipPath: hexagon,
                     transformStyle: 'preserve-3d',
                 }}
             >
-                <span
-                    className="flex h-full w-full items-center justify-center"
-                    style={{
-                        transformStyle: 'preserve-3d',
-                        clipPath: hexagon,
-                    }}
-                >
-                    <Icon size={39} color={skill.color} aria-hidden="true" />
-                </span>
+        <span
+            className="flex h-full w-full
+                     items-center justify-center"
+            style={{
+                transformStyle: 'preserve-3d',
+                clipPath: hexagon,
+            }}
+        >
+          <Icon
+              size={39}
+              color={skill.color}
+              aria-hidden="true"
+          />
+        </span>
             </div>
 
+            {/* Technology label */}
             <div>
                 <p className="text-sm font-medium text-white">
                     {skill.name}
                 </p>
 
                 {skill.status && (
-                    <p className={`mt-1 text-xs ${skill.status === 'Learning' ? 'text-violet-300' : 'text-slate-400'}`}>
-                        {skill.status}
+                    <p
+                        className={`mt-1 text-xs ${
+                            skill.status === 'learning'
+                                ? 'text-violet-300'
+                                : 'text-slate-400'
+                        }`}
+                    >
+                        {t(`skills.statuses.${skill.status}`)}
                     </p>
                 )}
             </div>
@@ -393,20 +401,17 @@ function SkillTile({ skill, selected, onSelect }) {
     );
 }
 
-
-// ---------------------------------------
-// MAIN SECTION
-// ---------------------------------------
-
 export default function Skills() {
+    const { t } = useTranslation();
+
     const [activeCategory, setActiveCategory] =
-        useState('All');
+        useState('all');
 
     const [selectedSkill, setSelectedSkill] =
         useState(null);
 
     const filteredSkills =
-        activeCategory === 'All'
+        activeCategory === 'all'
             ? skills
             : skills.filter(
                 (skill) => skill.category === activeCategory
@@ -419,9 +424,11 @@ export default function Skills() {
 
     function selectSkill(skill) {
         setSelectedSkill((previous) =>
-            previous?.name === skill.name ? null : skill
+            previous?.id === skill.id ? null : skill
         );
     }
+
+    const SelectedIcon = selectedSkill?.icon;
 
     return (
         <section
@@ -429,6 +436,7 @@ export default function Skills() {
             className="relative isolate overflow-hidden
                  bg-[#080f1e] py-24"
         >
+            {/* Three.js background */}
             <TechStackBackground />
 
             <div
@@ -443,61 +451,55 @@ export default function Skills() {
                 className="relative z-10 mx-auto
                    max-w-7xl px-6 lg:px-12"
             >
-                {/* Heading */}
+                {/* Section heading */}
                 <p
                     className="mb-4 text-sm font-semibold
                      uppercase tracking-[0.25em]
                      text-teal-400"
                 >
-                    Technologies & Expertise
+                    {t('skills.eyebrow')}
                 </p>
 
                 <h2
                     className="text-3xl font-bold
                      text-white sm:text-4xl"
                 >
-                    My Tech Stack
+                    {t('skills.title')}
                 </h2>
 
                 <p
                     className="mt-4 max-w-2xl
                      leading-relaxed text-slate-400"
                 >
-                    Technologies I use to build web
-                    applications and backend systems,
-                    alongside tools I'm exploring as
-                    I expand into AI and data engineering.
+                    {t('skills.description')}
                 </p>
 
-                {/* Filters */}
+                {/* Category filters */}
                 <div
                     className="mt-10 flex flex-wrap gap-3"
                     role="group"
-                    aria-label="Technology filters"
+                    aria-label={t('skills.filtersLabel')}
                 >
                     {categories.map((category) => (
                         <button
                             key={category}
                             type="button"
                             onClick={() => changeCategory(category)}
-                            aria-pressed={
-                                activeCategory === category
-                            }
-                            className={`rounded-full border px-5
-                          py-2 text-sm
-                          transition-colors
-                ${
+                            aria-pressed={activeCategory === category}
+                            className={`rounded-full border
+                          px-5 py-2 text-sm
+                          transition-colors ${
                                 activeCategory === category
                                     ? 'border-teal-400 bg-teal-400 font-semibold text-slate-950'
                                     : 'border-white/15 text-slate-300 hover:border-teal-400/50 hover:text-teal-300'
                             }`}
                         >
-                            {category}
+                            {t(`skills.categories.${category}`)}
                         </button>
                     ))}
                 </div>
 
-                {/* 3D hexagonal grid */}
+                {/* Hexagonal skills grid */}
                 <div
                     className="mt-12 grid grid-cols-3
                      gap-x-5 gap-y-10
@@ -507,11 +509,9 @@ export default function Skills() {
                 >
                     {filteredSkills.map((skill) => (
                         <SkillTile
-                            key={skill.name}
+                            key={skill.id}
                             skill={skill}
-                            selected={
-                                selectedSkill?.name === skill.name
-                            }
+                            selected={selectedSkill?.id === skill.id}
                             onSelect={selectSkill}
                         />
                     ))}
@@ -525,19 +525,24 @@ export default function Skills() {
                        bg-[#102237]/95 p-6
                        shadow-xl shadow-black/10"
                         role="region"
-                        aria-label={`${selectedSkill.name} details`}
+                        aria-label={t('skills.detailsLabel', {
+                            name: selectedSkill.name,
+                        })}
                     >
                         <div
-                            className="flex flex-wrap
-                         items-start justify-between
-                         gap-4"
+                            className="flex flex-wrap items-start
+                         justify-between gap-4"
                         >
-                            <div className="flex items-center gap-4">
-                                <selectedSkill.icon
-                                    size={36}
-                                    color={selectedSkill.color}
-                                    aria-hidden="true"
-                                />
+                            <div
+                                className="flex items-center gap-4"
+                            >
+                                {SelectedIcon && (
+                                    <SelectedIcon
+                                        size={36}
+                                        color={selectedSkill.color}
+                                        aria-hidden="true"
+                                    />
+                                )}
 
                                 <div>
                                     <h3
@@ -551,9 +556,14 @@ export default function Skills() {
                                         className="mt-1 text-sm
                                text-teal-300"
                                     >
-                                        {selectedSkill.category}
+                                        {t(
+                                            `skills.categories.${selectedSkill.category}`
+                                        )}
+
                                         {selectedSkill.status &&
-                                            ` · ${selectedSkill.status}`}
+                                            ` · ${t(
+                                                `skills.statuses.${selectedSkill.status}`
+                                            )}`}
                                     </p>
                                 </div>
                             </div>
@@ -562,12 +572,13 @@ export default function Skills() {
                                 type="button"
                                 onClick={() => setSelectedSkill(null)}
                                 className="rounded-lg border
-                           border-white/20 px-3 py-1.5
+                           border-white/20
+                           px-3 py-1.5
                            text-sm text-slate-300
                            hover:text-white"
-                                aria-label="Close skill details"
+                                aria-label={t('skills.close')}
                             >
-                                Close ×
+                                {t('skills.close')} ×
                             </button>
                         </div>
 
@@ -575,14 +586,16 @@ export default function Skills() {
                             className="mt-5 max-w-3xl
                          leading-relaxed text-slate-300"
                         >
-                            {selectedSkill.description}
+                            {t(
+                                `skills.descriptions.${selectedSkill.id}`
+                            )}
                         </p>
                     </div>
                 )}
 
-                {/* AI career transition notice */}
-                {(activeCategory === 'All' ||
-                    activeCategory === 'AI & Data') && (
+                {/* AI learning transparency notice */}
+                {(activeCategory === 'all' ||
+                    activeCategory === 'ai') && (
                     <p
                         className="mt-12 max-w-3xl
                        rounded-xl border
@@ -591,13 +604,7 @@ export default function Skills() {
                        text-sm leading-relaxed
                        text-slate-300"
                     >
-                        I'm expanding my professional Python
-                        and full-stack development experience
-                        into AI-powered applications,
-                        intelligent workflows and data
-                        engineering. Learning and Exploring
-                        labels indicate technologies I'm
-                        still developing.
+                        {t('skills.notice')}
                     </p>
                 )}
             </div>

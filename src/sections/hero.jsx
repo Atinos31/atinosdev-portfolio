@@ -1,67 +1,43 @@
 
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import KnowledgeGraph, {
     knowledgeNodes,
 } from '../components/KnowledgeGraph.jsx';
 
 const interests = [
-    'AI & Data',
-    'Gardening',
-    'Travel',
-    'Culture',
-    'Dance',
+    'ai',
+    'gardening',
+    'travel',
+    'culture',
+    'dance',
 ];
 
 const nodePositions = {
-    'top-left': {
-        left: '17%',
-        top: '20%',
-    },
-    'top-right': {
-        left: '83%',
-        top: '20%',
-    },
-    'bottom-left': {
-        left: '16%',
-        top: '69%',
-    },
-    'bottom-right': {
-        left: '84%',
-        top: '69%',
-    },
-    'bottom-center': {
-        left: '50%',
-        top: '91%',
-    },
+    'top-left': { left: '17%', top: '20%' },
+    'top-right': { left: '83%', top: '20%' },
+    'bottom-left': { left: '16%', top: '69%' },
+    'bottom-right': { left: '84%', top: '69%' },
+    'bottom-center': { left: '50%', top: '91%' },
 };
 
 function useReducedMotion() {
-    const [reducedMotion, setReducedMotion] =
-        useState(false);
+    const [reducedMotion, setReducedMotion] = useState(false);
 
     useEffect(() => {
         const media = window.matchMedia(
             '(prefers-reduced-motion: reduce)'
         );
 
-        const update = () => {
-            setReducedMotion(media.matches);
-        };
+        const update = () => setReducedMotion(media.matches);
 
         update();
+        media.addEventListener('change', update);
 
-        if (media.addEventListener) {
-            media.addEventListener('change', update);
-
-            return () => {
-                media.removeEventListener('change', update);
-            };
-        }
-
-        media.addListener(update);
-
-        return () => media.removeListener(update);
+        return () => {
+            media.removeEventListener('change', update);
+        };
     }, []);
 
     return reducedMotion;
@@ -72,19 +48,22 @@ function TechnologyButton({
                               selected,
                               onSelect,
                           }) {
+    const { t } = useTranslation();
     const position = nodePositions[node.position];
+
+    const name = t(`hero.nodes.${node.id}.name`, {
+        defaultValue: node.name,
+    });
 
     return (
         <button
             type="button"
             onClick={() => onSelect(node.id)}
             aria-pressed={selected}
-            aria-label={`Show ${node.name} details`}
-            className="group absolute z-20
-                 flex -translate-x-1/2
-                 -translate-y-1/2 flex-col
-                 items-center gap-1.5
-                 rounded-lg p-1
+            aria-label={t('hero.showDetails', { name })}
+            className="group absolute z-20 flex -translate-x-1/2
+                 -translate-y-1/2 flex-col items-center
+                 gap-1.5 rounded-lg p-1
                  focus-visible:outline-2
                  focus-visible:outline-offset-4
                  focus-visible:outline-teal-400"
@@ -110,34 +89,28 @@ function TechnologyButton({
           }}
       >
         <span
-            className="h-3.5 w-3.5 rounded-full
-                     sm:h-4 sm:w-4"
-            style={{
-                backgroundColor: node.color,
-            }}
+            className="h-3.5 w-3.5 rounded-full sm:h-4 sm:w-4"
+            style={{ backgroundColor: node.color }}
         />
       </span>
 
             <span
-                className={`max-w-[92px] text-center
+                className={`max-w-[110px] text-center
                     text-[10px] font-medium
-                    leading-tight sm:text-xs
-          ${
-                    selected
-                        ? 'text-teal-200'
-                        : 'text-slate-300'
+                    leading-tight sm:text-xs ${
+                    selected ? 'text-teal-200' : 'text-slate-300'
                 }`}
             >
-        {node.name}
+        {name}
       </span>
         </button>
     );
 }
 
 export default function Hero() {
-    const [selectedId, setSelectedId] =
-        useState('python');
+    const { t } = useTranslation();
 
+    const [selectedId, setSelectedId] = useState('python');
     const reducedMotion = useReducedMotion();
 
     const selectedNode = knowledgeNodes.find(
@@ -147,113 +120,100 @@ export default function Hero() {
     return (
         <section
             id="home"
-            className="mx-auto grid min-h-[85vh]
-                 max-w-7xl grid-cols-1
-                 items-center gap-12
-                 px-6 py-16
-                 lg:grid-cols-2 lg:gap-10
-                 lg:px-12"
+            className="mx-auto grid min-h-[85vh] max-w-7xl
+                 grid-cols-1 items-center gap-12
+                 px-6 py-16 lg:grid-cols-2
+                 lg:gap-10 lg:px-12"
         >
-            {/* LEFT COLUMN */}
+            {/* Introduction */}
             <div className="relative z-10 min-w-0">
-
-                <p className="mb-5 text-sm font-semibold uppercase tracking-[0.25em] text-teal-400">
-                    Sandra Atino · Full-Stack Developer · Applied AI
+                <p
+                    className="mb-5 text-sm font-semibold uppercase
+                     tracking-[0.25em] text-teal-400"
+                >
+                    {t('hero.eyebrow')}
                 </p>
 
-                <h1 className="text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl xl:text-6xl">
-                    Building intelligent software
-                    <span className="block text-teal-400">
-    for real-world problems.
-  </span>
+                <h1
+                    className="text-4xl font-bold leading-tight
+                     tracking-tight text-white
+                     sm:text-5xl lg:text-5xl xl:text-6xl"
+                >
+                    {t('hero.title')}
+
+                    <span className="mt-2 block text-teal-400">
+            {t('hero.highlight')}
+          </span>
                 </h1>
 
-                <p className="mt-7 max-w-xl text-lg leading-relaxed text-slate-300">
-                    I'm a full-stack developer specializing in Python,
-                    Django and modern web technologies. I build reliable
-                    digital platforms while expanding into AI-powered
-                    applications, intelligent automation and data engineering.
+                <p
+                    className="mt-7 max-w-xl text-lg
+                     leading-relaxed text-slate-300"
+                >
+                    {t('hero.description')}
                 </p>
 
                 <p className="mt-4 text-slate-400">
-                    Based in Belgium · Open to remote
-                    and hybrid opportunities
+                    {t('hero.location')}
                 </p>
 
                 <div className="mt-9 flex flex-wrap gap-4">
                     <a
                         href="#projects"
-                        className="rounded-lg bg-teal-400
-                       px-6 py-3 font-semibold
-                       text-slate-950 transition
-                       hover:bg-teal-300"
+                        className="rounded-lg bg-teal-400 px-6 py-3
+                       font-semibold text-slate-950
+                       transition hover:bg-teal-300"
                     >
-                        Explore My Work →
+                        {t('hero.work')} →
                     </a>
 
                     <a
                         href="#contact"
-                        className="rounded-lg border
-                       border-slate-500
-                       px-6 py-3 font-semibold
-                       text-white transition
-                       hover:border-teal-400"
+                        className="rounded-lg border border-slate-500
+                       px-6 py-3 font-semibold text-white
+                       transition hover:border-teal-400"
                     >
-                        Get in Touch
+                        {t('hero.contact')}
                     </a>
                 </div>
             </div>
 
-            {/* RIGHT COLUMN */}
+            {/* Interactive portrait */}
             <div
-                className="relative z-0 flex min-w-0
-                   w-full flex-col items-center lg:pl-4"
+                className="relative z-0 flex min-w-0 w-full
+                   flex-col items-center lg:pl-4"
             >
-                {/* Confined network visualization */}
                 <div
-                    className="relative isolate
-                     h-[390px] w-full
-                     max-w-[520px]
-                     overflow-hidden rounded-3xl
-                     sm:h-[460px]"
+                    className="relative isolate h-[390px] w-full
+                     max-w-[520px] overflow-hidden
+                     rounded-3xl sm:h-[460px]"
                 >
-                    {/* Background glow */}
                     <div
                         aria-hidden="true"
-                        className="pointer-events-none
-                       absolute inset-[18%]
-                       rounded-full bg-teal-500/10
-                       blur-3xl"
+                        className="pointer-events-none absolute
+                       inset-[18%] rounded-full
+                       bg-teal-500/10 blur-3xl"
                     />
 
-                    {/* Three.js background */}
-                    <KnowledgeGraph
-                        reducedMotion={reducedMotion}
-                    />
+                    <KnowledgeGraph reducedMotion={reducedMotion} />
 
-                    {/* Single central portrait */}
                     <div
-                        className="pointer-events-none
-                       absolute left-1/2 top-[46%]
-                       z-10 h-44 w-44
-                       -translate-x-1/2
-                       -translate-y-1/2
-                       overflow-hidden rounded-full
-                       border-2
-                       border-teal-400/60
-                       bg-slate-800
-                       shadow-2xl
-                       shadow-teal-500/15
+                        className="pointer-events-none absolute
+                       left-1/2 top-[46%] z-10
+                       h-44 w-44 -translate-x-1/2
+                       -translate-y-1/2 overflow-hidden
+                       rounded-full border-2
+                       border-teal-400/60 bg-slate-800
+                       shadow-2xl shadow-teal-500/15
                        sm:h-60 sm:w-60"
                     >
                         <img
                             src={`${import.meta.env.BASE_URL}images/profile/sandra.jpg`}
-                            alt="Portrait of Sandra Atino"
+                            alt={t('hero.portraitAlt')}
                             className="h-full w-full object-cover"
                         />
                     </div>
 
-                    {/* Interactive nodes */}
                     {knowledgeNodes.map((node) => (
                         <TechnologyButton
                             key={node.id}
@@ -264,40 +224,34 @@ export default function Hero() {
                     ))}
                 </div>
 
-                {/* Selected technology detail */}
+                {/* Selected technology */}
                 {selectedNode && (
                     <div
                         className="mt-4 w-full max-w-[520px]
-                       rounded-xl border
-                       border-teal-400/20
-                       bg-[#102237]/90
-                       p-5"
+                       rounded-xl border border-teal-400/20
+                       bg-[#102237]/90 p-5"
                         aria-live="polite"
                     >
                         <div className="flex items-center gap-3">
               <span
-                  className="h-3 w-3
-                           shrink-0 rounded-full"
+                  className="h-3 w-3 shrink-0 rounded-full"
                   style={{
-                      backgroundColor:
-                      selectedNode.color,
+                      backgroundColor: selectedNode.color,
                   }}
+                  aria-hidden="true"
               />
 
-                            <h2
-                                className="text-base font-semibold
-                           text-white"
-                            >
-                                {selectedNode.name}
+                            <h2 className="text-base font-semibold text-white">
+                                {t(`hero.nodes.${selectedId}.name`, {
+                                    defaultValue: selectedNode.name,
+                                })}
                             </h2>
                         </div>
 
-                        <p
-                            className="mt-3 text-sm
-                         leading-relaxed
-                         text-slate-300"
-                        >
-                            {selectedNode.description}
+                        <p className="mt-3 text-sm leading-relaxed text-slate-300">
+                            {t(`hero.nodes.${selectedId}.description`, {
+                                defaultValue: selectedNode.description,
+                            })}
                         </p>
                     </div>
                 )}
@@ -305,8 +259,7 @@ export default function Hero() {
                 {/* Personal interests */}
                 <div
                     className="mt-5 flex max-w-[520px]
-                     flex-wrap justify-center
-                     gap-2"
+                     flex-wrap justify-center gap-2"
                 >
                     {interests.map((interest) => (
                         <span
@@ -317,7 +270,7 @@ export default function Hero() {
                          px-3 py-1.5 text-xs
                          text-teal-200"
                         >
-              {interest}
+              {t(`hero.interests.${interest}`)}
             </span>
                     ))}
                 </div>
@@ -325,5 +278,4 @@ export default function Hero() {
         </section>
     );
 }
-
 

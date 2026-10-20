@@ -1,0 +1,43 @@
+
+{
+  "hero": {
+    "eyebrow": "DÉVELOPPEUSE FULL STACK · PYTHON · IA APPLIQUÉE",
+    "title": "Créer des logiciels intelligents",
+    "highlight": "pour résoudre des problèmes concrets.",
+    "description": "Je suis développeuse full stack, spécialisée en Python, Django et technologies web modernes. Je conçois des plateformes numériques fiables tout en développant mes compétences en applications d'intelligence artificielle, en automatisation intelligente et en ingénierie des données.",
+    "location": "Basée en Belgique · Ouverte aux opportunités à distance et hybrides",
+    "work": "Découvrir mes projets",
+    "contact": "Me contacter",
+    "portraitAlt": "Portrait de Sandra Atino",
+    "showDetails": "Afficher les détails de {{name}}",
+    "interests": {
+      "ai": "IA et données",
+      "gardening": "Jardinage",
+      "travel": "Voyages",
+      "culture": "Culture",
+      "dance": "Danse"
+    },
+    "nodes": {
+      "python": {
+        "name": "Python",
+        "description": "J'utilise Python pour le développement backend, la logique métier, l'automatisation et les applications web."
+      },
+      "django": {
+        "name": "Django",
+        "description": "Je développe des applications orientées données, des API et des systèmes de gestion de contenu avec Django et Wagtail."
+      },
+      "postgresql": {
+        "name": "PostgreSQL",
+        "description": "Je travaille avec PostgreSQL, les modèles de données relationnels et les requêtes SQL dans les applications backend."
+      },
+      "agents": {
+        "name": "Agents IA",
+        "description": "Je développe mes compétences en agents IA, en intégration de modèles de langage et en automatisation intelligente."
+      },
+      "data": {
+        "name": "Ingénierie des données",
+        "description": "J'approfondis mes connaissances en Python et SQL dans le domaine des pipelines de données, du traitement des données et de l'analyse."
+      }
+    }
+  }
+}

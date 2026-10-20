@@ -1,0 +1,33 @@
+
+{
+  "journal": {
+    "eyebrow": "Engineering Notes",
+    "title": "Learning, building and sharing.",
+    "description": "Short technical reflections from my work in backend development, interactive web experiences and applied AI.",
+    "readMore": "Read Engineering Note",
+    "showLess": "Show Less",
+    "notes": {
+      "django": {
+        "category": "BACKEND ENGINEERING",
+        "title": "Why Django Remains Central to My Work",
+        "summary": "How Django connects application logic, data models and maintainable backend development.",
+        "content": "Django brings together routing, data models, authentication and application structure. I particularly value how it supports content-rich applications alongside Wagtail. As I explore AI-powered software, Django continues to provide a practical foundation for building the services around language models."
+      },
+      "three": {
+        "category": "CREATIVE ENGINEERING",
+        "title": "Building Interactive Experiences with Three.js",
+        "summary": "Exploring procedural geometry, animations and interaction in a React portfolio.",
+        "content": "For this portfolio, I use React Three Fiber to create 3D objects inside React components. The engineering challenge is not simply making objects move: it is connecting scene interaction to application state, preserving mobile usability and keeping navigation accessible without a 3D interface."
+      },
+      "ai": {
+        "category": "AI ENGINEERING JOURNEY",
+        "title": "From Django Applications to AI-Powered Systems",
+        "summary": "How existing backend engineering skills provide a foundation for applied AI.",
+        "content": "My Django AI Employees project is a place to explore customer support workflows, orders and conversations. The next development stages involve connecting language models, introducing controlled tool use and evaluating system behaviour. I am approaching these as engineering problems that require dependable application design, not just prompting."
+      }
+    },
+    "tags": {
+      "aiLearning": "AI Agents — Learning"
+    }
+  }
+}

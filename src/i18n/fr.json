@@ -1,0 +1,42 @@
+
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "projects": "Projets",
+    "engineering": "Ingénierie",
+    "experience": "Expérience",
+    "skills": "Compétences",
+    "journal": "Journal",
+    "contact": "Contact"
+  },
+  "hero": {
+    "eyebrow": "DÉVELOPPEUSE FULL STACK · PYTHON · IA APPLIQUÉE",
+    "title": "Créer des logiciels intelligents",
+    "highlight": "pour résoudre des problèmes concrets.",
+    "description": "Je suis développeuse full stack, spécialisée en Python, Django et technologies web modernes. Je conçois des plateformes numériques fiables tout en développant mes compétences en applications d'intelligence artificielle, en automatisation intelligente et en ingénierie des données.",
+    "location": "Basée en Belgique · Ouverte aux opportunités à distance et hybrides",
+    "work": "Découvrir mes projets",
+    "contact": "Me contacter"
+  },
+  "sections": {
+    "projects": "Projets sélectionnés",
+    "engineering": "Explorer mes domaines d'ingénierie",
+    "skills": "Mes compétences techniques",
+    "experience": "Expérience professionnelle",
+    "about": "À propos de moi",
+    "journal": "Journal technique",
+    "contact": "Construisons quelque chose d'utile"
+  },
+  "common": {
+    "viewProject": "Voir le projet",
+    "visitWebsite": "Visiter le site",
+    "viewCode": "Voir le code",
+    "downloadCV": "Télécharger mon CV",
+    "readMore": "En savoir plus",
+    "close": "Fermer",
+    "learning": "En apprentissage",
+    "exploring": "En exploration",
+    "inProgress": "En cours"
+  }
+}

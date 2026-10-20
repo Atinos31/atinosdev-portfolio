@@ -1,0 +1,42 @@
+
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "engineering": "Engineering",
+    "experience": "Experience",
+    "skills": "Skills",
+    "journal": "Journal",
+    "contact": "Contact"
+  },
+  "hero": {
+    "eyebrow": "FULL-STACK DEVELOPER · PYTHON · APPLIED AI",
+    "title": "Building intelligent software",
+    "highlight": "for real-world problems.",
+    "description": "I'm a full-stack developer specializing in Python, Django and modern web technologies. I build reliable digital platforms while expanding into AI-powered applications, intelligent automation and data engineering.",
+    "location": "Based in Belgium · Open to remote and hybrid opportunities",
+    "work": "Explore My Work",
+    "contact": "Get in Touch"
+  },
+  "sections": {
+    "projects": "Selected Work",
+    "engineering": "Explore My Engineering",
+    "skills": "My Tech Stack",
+    "experience": "Professional Experience",
+    "about": "About Me",
+    "journal": "Engineering Journal",
+    "contact": "Let's Build Something Meaningful"
+  },
+  "common": {
+    "viewProject": "View Project",
+    "visitWebsite": "Visit Website",
+    "viewCode": "View Code",
+    "downloadCV": "Download CV",
+    "readMore": "Read More",
+    "close": "Close",
+    "learning": "Learning",
+    "exploring": "Exploring",
+    "inProgress": "In Progress"
+  }
+}

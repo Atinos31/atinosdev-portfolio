@@ -1,0 +1,24 @@
+
+{
+  "experience": {
+    "eyebrow": "Mon parcours",
+    "title": "Expérience professionnelle",
+    "subtitle": "Développement et maintenance d'applications web répondant à des besoins professionnels concrets.",
+    "professionalBadge": "Expérience professionnelle",
+    "jobs": {
+      "colead": {
+        "dates": "Juillet 2022 — Avril 2026",
+        "role": "Développeuse Full Stack",
+        "company": "COLEAD",
+        "description": "J'ai contribué au développement, à la maintenance et à l'amélioration de plateformes web en production, en intervenant sur les fonctionnalités backend, les systèmes de gestion de contenu, les bases de données et les interfaces utilisateurs.",
+        "achievements": [
+          "Développement et maintenance de fonctionnalités web avec Python, Django, Wagtail et JavaScript.",
+          "Travail sur des bases de données relationnelles, des API, le débogage et l'amélioration des applications.",
+          "Développement et maintenance de fonctionnalités WordPress et de composants frontend.",
+          "Participation aux processus de développement collaboratif avec Git et des outils de suivi des tâches.",
+          "Contribution à des plateformes en production, notamment AGRINFO et Agrinnovators."
+        ]
+      }
+    }
+  }
+}

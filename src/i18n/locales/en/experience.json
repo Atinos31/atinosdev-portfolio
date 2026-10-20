@@ -1,0 +1,24 @@
+
+{
+  "experience": {
+    "eyebrow": "My Background",
+    "title": "Professional Experience",
+    "subtitle": "Building and maintaining web applications for real-world business needs.",
+    "professionalBadge": "Professional Experience",
+    "jobs": {
+      "colead": {
+        "dates": "July 2022 — April 2026",
+        "role": "Full-Stack Developer",
+        "company": "COLEAD",
+        "description": "Contributed to the development, maintenance, and improvement of production web platforms, working across backend functionality, content management systems, databases, and user interfaces.",
+        "achievements": [
+          "Developed and maintained web functionality using Python, Django, Wagtail and JavaScript.",
+          "Worked with relational databases, APIs, debugging and application improvements.",
+          "Developed and maintained WordPress CMS features and frontend components.",
+          "Contributed to collaborative development workflows involving Git and issue tracking.",
+          "Worked on production platforms including AGRINFO and Agrinnovators."
+        ]
+      }
+    }
+  }
+}
