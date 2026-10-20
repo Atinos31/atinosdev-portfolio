@@ -1,5 +1,7 @@
 
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+
 import {
     ArrowUpRight,
     Layers3,
@@ -9,86 +11,74 @@ import {
 
 import { SiGithub } from 'react-icons/si';
 
-
 const BASE = import.meta.env.BASE_URL;
 
+// Project metadata stays independent of language.
+// All descriptions and case study text live in projects.json.
 const projects = [
     {
         id: 'agrinfo',
         name: 'AGRINFO',
-        eyebrow: 'PROFESSIONAL PROJECT · FULL-STACK',
-        tagline: 'Supporting access to regulatory intelligence',
         image: `${BASE}images/projects/agrinfo.png`,
         website: 'https://agrinfo.eu/',
         github: null,
-        role: 'Full-stack development team member',
-        overview:
-            'AGRINFO helps agri-food stakeholders understand changing EU regulatory requirements and their implications for market access.',
-        contributions: [
-            'Contributed to development of the AGRINFO platform.',
-            'Worked within a Python, Django and Wagtail-based stack.',
-            'Used PostgreSQL and frontend technologies in a content-rich application.',
-            'Collaborated within a professional development environment.',
-        ],
         technologies: [
-            'Python', 'Django', 'Wagtail CMS', 'PostgreSQL', 'JavaScript',
-            'Tailwind CSS','Alpine.js','React.js','Matomo Analytics', 'Meilisearch','DeepL Api'
+            'Python',
+            'Django',
+            'Wagtail CMS',
+            'PostgreSQL',
+            'JavaScript',
+            'Tailwind CSS',
+            'Alpine.js',
+            'React.js',
+            'Matomo Analytics',
+            'Meilisearch',
+            'DeepL API',
         ],
         accent: '#38bdf8',
     },
     {
         id: 'agrinnovators',
         name: 'Agrinnovators',
-        eyebrow: 'PROFESSIONAL PROJECT · WORDPRESS',
-        tagline: 'Building a platform for agri-food innovation',
         image: `${BASE}images/projects/agrinnovators.png`,
         website: 'https://agrinnovators.org/',
         github: null,
-        role: 'Website developer — end-to-end implementation',
-        overview:
-            'A digital platform supporting agri-food innovation, entrepreneurship and knowledge sharing.',
-        contributions: [
-            'Implemented the website using WordPress and Divi.',
-            'Developed custom PHP, JavaScript, jQuery and CSS functionality.',
-            'Created custom post types, ACF fields and dynamic content queries.',
-            'Implemented search, filtering and user registration features.',
-            'Supported multilingual content with WPML.',
-        ],
         technologies: [
-            'WordPress', 'Divi', 'PHP', 'JavaScript',
-            'ACF', 'WPML', 'jQuery', 'CSS','Google Analytics',
+            'WordPress',
+            'Divi',
+            'PHP',
+            'JavaScript',
+            'ACF',
+            'WPML',
+            'jQuery',
+            'CSS',
+            'Google Analytics',
         ],
         accent: '#2dd4bf',
     },
     {
         id: 'ai-employees',
         name: 'Django AI Employees',
-        eyebrow: 'PERSONAL PROJECT · IN PROGRESS',
-        tagline: 'Exploring intelligent customer support systems',
         image: null,
         website: null,
         github:
             'https://github.com/Atinos31/django-ai-employees',
-        role: 'Independent developer',
-        overview:
-            'A Django project exploring the foundations of AI-assisted customer support, order management and intelligent workflows.',
-        contributions: [
-            'Structured Django applications for orders and support.',
-            'Implemented domain models for products, orders and refund requests.',
-            'Developed conversation, message and agent log data structures.',
-            'Continuing work on LLM integration, agent workflows and automation.',
-        ],
         technologies: [
-            'Python', 'Django', 'MySQL','ChromaDB','LangChain','Claude Api',
+            'Python',
+            'Django',
+            'MySQL',
+            'ChromaDB',
+            'LangChain',
+            'Claude API',
             'AI Agents — Learning',
         ],
         accent: '#c084fc',
     },
 ];
 
-
-
+// Screenshot or placeholder for projects without images.
 function ProjectVisual({ project }) {
+    const { t } = useTranslation();
     const [imageFailed, setImageFailed] = useState(false);
 
     if (!project.image || imageFailed) {
@@ -103,14 +93,17 @@ function ProjectVisual({ project }) {
                     <Layers3
                         className="mx-auto mb-3 text-teal-300"
                         size={48}
+                        aria-hidden="true"
                     />
+
                     <p className="font-semibold text-white">
                         {project.name}
                     </p>
+
                     <p className="mt-1 text-xs text-slate-400">
                         {project.id === 'ai-employees'
-                            ? 'Development in progress'
-                            : 'Project showcase'}
+                            ? t('projects.developmentInProgress')
+                            : t('projects.showcase')}
                     </p>
                 </div>
             </div>
@@ -120,7 +113,9 @@ function ProjectVisual({ project }) {
     return (
         <img
             src={project.image}
-            alt={`${project.name} website screenshot`}
+            alt={t('projects.imageAlt', {
+                name: project.name,
+            })}
             onError={() => setImageFailed(true)}
             className="aspect-video w-full rounded-xl
                  object-cover object-top"
@@ -130,12 +125,35 @@ function ProjectVisual({ project }) {
 }
 
 export default function Projects() {
+    const { t } = useTranslation();
+
     const [selectedId, setSelectedId] =
         useState('agrinnovators');
 
     const selected =
-        projects.find((p) => p.id === selectedId) ??
+        projects.find((project) => project.id === selectedId) ??
         projects[0];
+
+    function projectText(project, key) {
+        return t(`projects.items.${project.id}.${key}`);
+    }
+
+    function getContributions(project) {
+        const result = t(
+            `projects.items.${project.id}.contributions`,
+            { returnObjects: true }
+        );
+
+        return Array.isArray(result) ? result : [];
+    }
+
+    function translateTechnology(technology) {
+        if (technology === 'AI Agents — Learning') {
+            return `AI Agents — ${t('projects.learning')}`;
+        }
+
+        return technology;
+    }
 
     return (
         <section
@@ -143,25 +161,33 @@ export default function Projects() {
             className="bg-[#080f1e] py-24"
         >
             <div className="mx-auto max-w-7xl px-6 lg:px-12">
-                <p className="text-sm font-semibold uppercase tracking-[0.25em] text-teal-400">
-                    Selected Work
+                {/* SECTION INTRODUCTION */}
+                <p
+                    className="text-sm font-semibold uppercase
+                     tracking-[0.25em] text-teal-400"
+                >
+                    {t('projects.eyebrow')}
                 </p>
 
-                <h2 className="mt-4 text-3xl font-bold text-white sm:text-4xl">
-                    Engineering with purpose
+                <h2
+                    className="mt-4 text-3xl font-bold
+                     text-white sm:text-4xl"
+                >
+                    {t('projects.title')}
                 </h2>
 
-                <p className="mt-4 max-w-3xl leading-relaxed text-slate-400">
-                    From professional web platforms to
-                    independent AI experiments, here is how
-                    I translate requirements into working software.
+                <p
+                    className="mt-4 max-w-3xl
+                     leading-relaxed text-slate-400"
+                >
+                    {t('projects.description')}
                 </p>
 
-                {/* Project selection */}
+                {/* PROJECT SELECTION */}
                 <div
                     className="mt-10 grid gap-3 sm:grid-cols-3"
                     role="group"
-                    aria-label="Choose a project"
+                    aria-label={t('projects.chooseProject')}
                 >
                     {projects.map((project) => {
                         const active = project.id === selectedId;
@@ -182,29 +208,43 @@ export default function Projects() {
                                         : 'border-white/10 bg-[#102033] hover:border-teal-400/40'
                                 }`}
                             >
-                <span className="text-xs uppercase tracking-wider text-slate-400">
-                  {project.eyebrow}
+                                {/* Project category */}
+                                <span
+                                    className="text-xs uppercase
+                             tracking-wider text-slate-400"
+                                >
+                  {projectText(project, 'eyebrow')}
                 </span>
 
-                                <span className="mt-2 block text-lg font-semibold text-white">
+                                {/* Project name */}
+                                <span
+                                    className="mt-2 block text-lg
+                             font-semibold text-white"
+                                >
                   {project.name}
                 </span>
 
-                                <span className="mt-1 block text-sm text-slate-400">
-                  {project.tagline}
+                                {/* Short project description */}
+                                <span
+                                    className="mt-1 block text-sm
+                             text-slate-400"
+                                >
+                  {projectText(project, 'tagline')}
                 </span>
                             </button>
                         );
                     })}
                 </div>
 
-                {/* Selected project case study */}
+                {/* SELECTED PROJECT CASE STUDY */}
                 <div
-                    className="mt-6 grid gap-8 rounded-2xl
-                     border border-white/10
+                    className="mt-6 grid gap-8
+                     rounded-2xl border
+                     border-white/10
                      bg-[#102033] p-5
                      md:p-8 lg:grid-cols-2"
                 >
+                    {/* LEFT: PROJECT IMAGE AND LINKS */}
                     <div className="min-w-0">
                         <ProjectVisual
                             key={selected.id}
@@ -224,8 +264,11 @@ export default function Projects() {
                              text-slate-950
                              hover:bg-teal-300"
                                 >
-                                    Visit Website
-                                    <ArrowUpRight size={16} />
+                                    {t('projects.visitWebsite')}
+                                    <ArrowUpRight
+                                        size={16}
+                                        aria-hidden="true"
+                                    />
                                 </a>
                             )}
 
@@ -241,56 +284,101 @@ export default function Projects() {
                              font-semibold text-white
                              hover:border-teal-400"
                                 >
-                                    <SiGithub size={16} />
-                                    View Code
+                                    <SiGithub
+                                        size={16}
+                                        aria-hidden="true"
+                                    />
+
+                                    {t('projects.viewCode')}
                                 </a>
                             )}
                         </div>
                     </div>
 
+                    {/* RIGHT: PROJECT DETAILS */}
                     <div className="min-w-0">
                         <p
-                            className="text-xs font-semibold uppercase tracking-widest"
-                            style={{ color: selected.accent }}
+                            className="text-xs font-semibold
+                         uppercase tracking-widest"
+                            style={{
+                                color: selected.accent,
+                            }}
                         >
-                            Project Case Study
+                            {t('projects.caseStudy')}
                         </p>
 
-                        <h3 className="mt-3 text-2xl font-bold text-white">
+                        <h3
+                            className="mt-3 text-2xl
+                         font-bold text-white"
+                        >
                             {selected.name}
                         </h3>
 
-                        <p className="mt-3 leading-relaxed text-slate-300">
-                            {selected.overview}
+                        {/* Overview */}
+                        <p
+                            className="mt-3 leading-relaxed
+                         text-slate-300"
+                        >
+                            {projectText(selected, 'overview')}
                         </p>
 
-                        <div className="mt-6 flex items-center gap-2 text-sm text-teal-300">
-                            <BriefcaseBusiness size={17} />
-                            {selected.role}
+                        {/* My role */}
+                        <div
+                            className="mt-6 flex items-center
+                         gap-2 text-sm text-teal-300"
+                        >
+                            <BriefcaseBusiness
+                                size={17}
+                                aria-hidden="true"
+                            />
+
+                            {projectText(selected, 'role')}
                         </div>
 
-                        <h4 className="mt-7 flex items-center gap-2 font-semibold text-white">
-                            <Code2 size={18} className="text-teal-400" />
-                            My Contribution
+                        {/* Contributions heading */}
+                        <h4
+                            className="mt-7 flex items-center
+                         gap-2 font-semibold
+                         text-white"
+                        >
+                            <Code2
+                                size={18}
+                                className="text-teal-400"
+                                aria-hidden="true"
+                            />
+
+                            {t('projects.contribution')}
                         </h4>
 
+                        {/* Contributions list */}
                         <ul className="mt-3 space-y-2">
-                            {selected.contributions.map((item) => (
-                                <li
-                                    key={item}
-                                    className="flex gap-3 text-sm
-                             leading-relaxed text-slate-300"
-                                >
-                  <span className="mt-1 text-teal-400">
-                    ▸
-                  </span>
-                                    <span>{item}</span>
-                                </li>
-                            ))}
+                            {getContributions(selected).map(
+                                (item, index) => (
+                                    <li
+                                        key={`${selected.id}-${index}`}
+                                        className="flex gap-3
+                               text-sm leading-relaxed
+                               text-slate-300"
+                                    >
+                    <span
+                        className="mt-1 text-teal-400"
+                        aria-hidden="true"
+                    >
+                      ▸
+                    </span>
+
+                                        <span>{item}</span>
+                                    </li>
+                                )
+                            )}
                         </ul>
 
-                        <h4 className="mt-7 font-semibold text-white">
-                            Technologies
+                        {/* TECHNOLOGIES */}
+                        <h4
+                            className="mt-7 font-semibold
+                         text-white"
+                        >
+                            {t('projects.technologies')}
                         </h4>
 
                         <div className="mt-3 flex flex-wrap gap-2">
@@ -302,7 +390,7 @@ export default function Projects() {
                              bg-white/5 px-3 py-1.5
                              text-xs text-slate-200"
                                 >
-                  {tech}
+                  {translateTechnology(tech)}
                 </span>
                             ))}
                         </div>
@@ -312,3 +400,4 @@ export default function Projects() {
         </section>
     );
 }
+

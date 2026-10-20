@@ -1,0 +1,43 @@
+
+{
+  "hero": {
+    "eyebrow": "FULL-STACK DEVELOPER · PYTHON · APPLIED AI",
+    "title": "Building intelligent software",
+    "highlight": "for real-world problems.",
+    "description": "I'm a full-stack developer specializing in Python, Django and modern web technologies. I build reliable digital platforms while expanding into AI-powered applications, intelligent automation and data engineering.",
+    "location": "Based in Belgium · Open to remote and hybrid opportunities",
+    "work": "Explore My Work",
+    "contact": "Get in Touch",
+    "portraitAlt": "Portrait of Sandra Atino",
+    "showDetails": "Show {{name}} details",
+    "interests": {
+      "ai": "AI & Data",
+      "gardening": "Gardening",
+      "travel": "Travel",
+      "culture": "Culture",
+      "dance": "Dance"
+    },
+    "nodes": {
+      "python": {
+        "name": "Python",
+        "description": "I use Python for backend development, business logic, automation and web applications."
+      },
+      "django": {
+        "name": "Django",
+        "description": "I build database-driven applications, APIs and content management systems with Django and Wagtail."
+      },
+      "postgresql": {
+        "name": "PostgreSQL",
+        "description": "I work with PostgreSQL, relational data models and SQL queries in backend applications."
+      },
+      "agents": {
+        "name": "AI Agents",
+        "description": "I am developing my skills in AI agents, language model integrations and intelligent workflows."
+      },
+      "data": {
+        "name": "Data Engineering",
+        "description": "I am expanding my Python and SQL experience into data pipelines, data processing and analytics."
+      }
+    }
+  }
+}

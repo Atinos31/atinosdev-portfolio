@@ -1,0 +1,47 @@
+
+{
+  "engineering": {
+    "eyebrow": "Explorer mes domaines d'ingénierie",
+    "title": "Que pouvons-nous créer grâce à la technologie ?",
+    "description": "Découvrez mon expérience en développement logiciel, mon évolution vers l'intelligence artificielle et l'ingénierie des données, ainsi que les expériences interactives que je crée.",
+    "instruction": "Sélectionnez un objet 3D pour explorer un domaine d'ingénierie.",
+    "disciplinesLabel": "Domaines d'ingénierie",
+    "technologies": "Technologies",
+    "relatedProjects": "Projets associés",
+    "noProjects": "Ce domaine est en cours de développement. Des démonstrations seront ajoutées au fur et à mesure de leur réalisation.",
+    "footer": "L'expérience en production alliée à l'apprentissage continu.",
+    "exploreProjects": "Découvrir mes projets",
+    "areas": {
+      "web": {
+        "title": "Développement web",
+        "subtitle": "Créer des plateformes numériques fiables",
+        "description": "Développement d'applications web en production, de systèmes frontend et backend, de CMS et d'intégrations API."
+      },
+      "ai": {
+        "title": "Ingénierie de l'IA",
+        "subtitle": "Développer des applications intelligentes",
+        "description": "J'explore l'intégration de modèles de langage, les workflows d'agents IA et l'automatisation intelligente à travers des projets pratiques avec Django."
+      },
+      "data": {
+        "title": "Ingénierie des données",
+        "subtitle": "Transformer les données en solutions utiles",
+        "description": "J'approfondis mon expérience en Python, PostgreSQL et SQL pour développer mes compétences en traitement des données, en pipelines et en analyse."
+      },
+      "creative": {
+        "title": "Développement interactif",
+        "subtitle": "Créer des expériences web interactives",
+        "description": "J'associe le développement frontend, React et Three.js pour créer des expériences interactives attrayantes et accessibles."
+      }
+    },
+    "projectNames": {
+      "agrinfo": "AGRINFO",
+      "agrinnovators": "Agrinnovators",
+      "aiEmployees": "Django AI Employees — En cours de développement",
+      "portfolio": "Portfolio interactif de développeuse"
+    },
+    "statuses": {
+      "learning": "En apprentissage",
+      "exploring": "En exploration"
+    }
+  }
+}

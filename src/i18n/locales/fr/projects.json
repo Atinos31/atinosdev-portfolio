@@ -1,0 +1,57 @@
+
+{
+  "projects": {
+    "eyebrow": "Projets sélectionnés",
+    "title": "Des solutions conçues pour répondre à des besoins concrets",
+    "description": "Des plateformes web professionnelles aux expérimentations personnelles en intelligence artificielle, découvrez comment je transforme les besoins en logiciels fonctionnels.",
+    "chooseProject": "Choisir un projet",
+    "visitWebsite": "Visiter le site",
+    "viewCode": "Voir le code",
+    "caseStudy": "Étude de cas",
+    "contribution": "Ma contribution",
+    "technologies": "Technologies",
+    "developmentInProgress": "Développement en cours",
+    "showcase": "Présentation du projet",
+    "imageAlt": "Capture d'écran du site {{name}}",
+    "learning": "En apprentissage",
+    "items": {
+      "agrinfo": {
+        "eyebrow": "PROJET PROFESSIONNEL · FULL STACK",
+        "tagline": "Faciliter l'accès à l'information réglementaire",
+        "overview": "AGRINFO aide les acteurs du secteur agroalimentaire à comprendre l'évolution des exigences réglementaires de l'Union européenne et leurs conséquences sur l'accès aux marchés.",
+        "role": "Membre de l'équipe de développement full stack",
+        "contributions": [
+          "Participation au développement de la plateforme AGRINFO.",
+          "Développement au sein d'un environnement technique basé sur Python, Django et Wagtail.",
+          "Utilisation de PostgreSQL et de technologies frontend dans une application riche en contenu.",
+          "Collaboration au sein d'une équipe de développement professionnelle."
+        ]
+      },
+      "agrinnovators": {
+        "eyebrow": "PROJET PROFESSIONNEL · WORDPRESS",
+        "tagline": "Créer une plateforme dédiée à l'innovation agroalimentaire",
+        "overview": "Une plateforme numérique favorisant l'innovation, l'entrepreneuriat et le partage de connaissances dans le secteur agroalimentaire.",
+        "role": "Développeuse web — réalisation de bout en bout",
+        "contributions": [
+          "Réalisation du site web avec WordPress et Divi.",
+          "Développement de fonctionnalités personnalisées en PHP, JavaScript, jQuery et CSS.",
+          "Création de types de contenus personnalisés, de champs ACF et de requêtes de contenu dynamiques.",
+          "Mise en place de fonctionnalités de recherche, de filtrage et d'inscription des utilisateurs.",
+          "Prise en charge du contenu multilingue avec WPML."
+        ]
+      },
+      "ai-employees": {
+        "eyebrow": "PROJET PERSONNEL · EN COURS",
+        "tagline": "Explorer les systèmes intelligents de support client",
+        "overview": "Un projet Django permettant d'explorer les bases d'un support client assisté par l'IA, de la gestion des commandes et des workflows intelligents.",
+        "role": "Développeuse indépendante",
+        "contributions": [
+          "Structuration des applications Django dédiées aux commandes et au support client.",
+          "Création de modèles métier pour les produits, les commandes et les demandes de remboursement.",
+          "Développement des structures de données pour les conversations, les messages et les journaux d'activité des agents.",
+          "Poursuite du travail sur l'intégration de modèles de langage, les workflows d'agents IA et l'automatisation."
+        ]
+      }
+    }
+  }
+}

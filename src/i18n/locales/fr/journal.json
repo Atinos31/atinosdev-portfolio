@@ -1,0 +1,33 @@
+
+{
+  "journal": {
+    "eyebrow": "Notes techniques",
+    "title": "Apprendre, développer et partager.",
+    "description": "De courtes réflexions techniques issues de mon expérience en développement backend, de mes projets web interactifs et de mon apprentissage de l'intelligence artificielle appliquée.",
+    "readMore": "Lire la note technique",
+    "showLess": "Afficher moins",
+    "notes": {
+      "django": {
+        "category": "DÉVELOPPEMENT BACKEND",
+        "title": "Pourquoi Django reste au cœur de mon travail",
+        "summary": "Comment Django facilite la gestion de la logique applicative, des modèles de données et la maintenance des applications backend.",
+        "content": "Django réunit le routage, les modèles de données, l'authentification et la structure des applications. J'apprécie particulièrement sa capacité à prendre en charge des plateformes riches en contenu lorsqu'il est associé à Wagtail. Alors que j'explore le développement de logiciels intégrant l'intelligence artificielle, Django reste une base pratique pour construire les services qui entourent les modèles de langage."
+      },
+      "three": {
+        "category": "DÉVELOPPEMENT INTERACTIF",
+        "title": "Créer des expériences interactives avec Three.js",
+        "summary": "Exploration de la géométrie procédurale, des animations et des interactions dans un portfolio React.",
+        "content": "Pour ce portfolio, j'utilise React Three Fiber afin de créer des objets 3D au sein de composants React. Le défi technique ne consiste pas simplement à animer des objets : il s'agit aussi de relier les interactions de la scène à l'état de l'application, de préserver une bonne expérience sur mobile et de garantir une navigation accessible sans dépendre de l'interface 3D."
+      },
+      "ai": {
+        "category": "PARCOURS EN INGÉNIERIE DE L'IA",
+        "title": "Des applications Django aux systèmes intégrant l'IA",
+        "summary": "Comment les compétences en développement backend constituent une base solide pour l'intelligence artificielle appliquée.",
+        "content": "Mon projet Django AI Employees me permet d'explorer les processus de support client, la gestion des commandes et les conversations. Les prochaines étapes consistent à intégrer des modèles de langage, à introduire des outils dont l'utilisation est contrôlée et à évaluer le comportement du système. J'aborde ces fonctionnalités comme des problèmes d'ingénierie nécessitant une conception applicative fiable, et pas uniquement comme des exercices de prompting."
+      }
+    },
+    "tags": {
+      "aiLearning": "Agents IA — En apprentissage"
+    }
+  }
+}

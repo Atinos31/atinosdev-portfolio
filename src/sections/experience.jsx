@@ -1,86 +1,53 @@
 
-const technologies = {
-    backend: [
-        'Python',
-        'Django',
-        'Django REST APIs',
-        'PostgreSQL',
-    ],
-    frontend: [
-        'JavaScript',
-        'HTML',
-        'CSS',
-        'Tailwind CSS',
-        'Alpine.js',
-        'Bootstrap',
-    ],
-    cms: [
-        'Wagtail',
-        'WordPress',
-        'Divi',
-        'ACF',
-        'WPML',
-    ],
-    tools: [
-        'Git',
-        'GitHub',
-        'Jira',
-        'REST APIs',
-    ],
-};
-
-function SkillGroup({ title, items }) {
-    return (
-        <div>
-            <h4 className="mb-4 font-semibold text-white">
-                {title}
-            </h4>
-
-            <div className="flex flex-wrap gap-2">
-                {items.map((skill) => (
-                    <span
-                        key={skill}
-                        className="rounded-lg border border-white/10
-                       bg-white/5 px-3 py-2 text-sm
-                       text-slate-300"
-                    >
-            {skill}
-          </span>
-                ))}
-            </div>
-        </div>
-    );
-}
+import { useTranslation } from 'react-i18next';
 
 export default function Experience() {
+    const { t } = useTranslation();
+
+    const achievements = t(
+        'experience.jobs.colead.achievements',
+        { returnObjects: true }
+    );
+
+    const achievementList = Array.isArray(achievements)
+        ? achievements
+        : [];
+
     return (
         <section
             id="experience"
-            className="border-y border-white/10 bg-white/[0.02]"
+            className="border-y border-white/10
+                 bg-white/[0.02]"
         >
             <div className="mx-auto max-w-7xl px-6 py-24 lg:px-12">
+                {/* Section heading */}
                 <p
-                    className="mb-4 text-sm font-semibold uppercase
-                     tracking-[0.25em] text-teal-400"
+                    className="mb-4 text-sm font-semibold
+                     uppercase tracking-[0.25em]
+                     text-teal-400"
                 >
-                    My Background
+                    {t('experience.eyebrow')}
                 </p>
 
                 <h2
-                    className="text-3xl font-bold tracking-tight
-                     text-white sm:text-4xl"
+                    className="text-3xl font-bold
+                     tracking-tight text-white
+                     sm:text-4xl"
                 >
-                    Professional Experience
+                    {t('experience.title')}
                 </h2>
 
-                <p className="mt-5 max-w-2xl text-lg text-slate-400">
-                    Building and maintaining web applications
-                    for real-world business needs.
+                <p
+                    className="mt-5 max-w-2xl
+                     text-lg text-slate-400"
+                >
+                    {t('experience.subtitle')}
                 </p>
 
-                {/* Work experience */}
+                {/* COLEAD experience card */}
                 <div
-                    className="mt-12 rounded-2xl border border-white/10
+                    className="mt-12 rounded-2xl
+                     border border-white/10
                      bg-[#0c1728] p-6 sm:p-10"
                 >
                     <div
@@ -88,74 +55,70 @@ export default function Experience() {
                        justify-between gap-4"
                     >
                         <div>
+                            {/* Employment dates */}
                             <p
-                                className="mb-2 text-sm font-medium
-                           text-teal-400"
+                                className="mb-2 text-sm
+                           font-medium text-teal-400"
                             >
-                                July 2022 — April 2026
+                                {t('experience.jobs.colead.dates')}
                             </p>
 
-                            <h3 className="text-2xl font-bold text-white">
-                                Full-Stack Developer
+                            {/* Job title */}
+                            <h3
+                                className="text-2xl
+                           font-bold text-white"
+                            >
+                                {t('experience.jobs.colead.role')}
                             </h3>
 
+                            {/* Employer */}
                             <a
                                 href="https://colead.link"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="mt-2 inline-block text-slate-300
+                                className="mt-2 inline-block
+                           text-slate-300
+                           transition-colors
                            hover:text-teal-300"
                             >
-                                COLEAD ↗
+                                {t('experience.jobs.colead.company')} ↗
                             </a>
                         </div>
 
+                        {/* Experience label */}
                         <span
-                            className="rounded-full border border-teal-400/20
-                         bg-teal-400/10 px-4 py-2
-                         text-xs font-medium text-teal-300"
+                            className="rounded-full border
+                         border-teal-400/20
+                         bg-teal-400/10
+                         px-4 py-2 text-xs
+                         font-medium text-teal-300"
                         >
-              Professional Experience
+              {t('experience.professionalBadge')}
             </span>
                     </div>
 
-                    <p className="mt-7 max-w-3xl leading-relaxed text-slate-300">
-                        Contributed to the development, maintenance,
-                        and improvement of production web platforms,
-                        working across backend functionality,
-                        content management systems, databases,
-                        and user interfaces.
+                    {/* Role overview */}
+                    <p
+                        className="mt-7 max-w-3xl
+                       leading-relaxed text-slate-300"
+                    >
+                        {t('experience.jobs.colead.description')}
                     </p>
 
+                    {/* Achievements */}
                     <ul
                         className="mt-7 list-disc space-y-3
-                       pl-5 leading-relaxed text-slate-400
+                       pl-5 leading-relaxed
+                       text-slate-400
                        marker:text-teal-400"
                     >
-                        <li>
-                            Developed and maintained web functionality
-                            using Python, Django, Wagtail and JavaScript.
-                        </li>
-                        <li>
-                            Worked with relational databases, APIs,
-                            debugging and application improvements.
-                        </li>
-                        <li>
-                            Developed and maintained WordPress CMS
-                            features and frontend components.
-                        </li>
-                        <li>
-                            Contributed to collaborative development
-                            workflows involving Git and issue tracking.
-                        </li>
-                        <li>
-                            Worked on production platforms including
-                            AGRINFO and Agrinnovators.
-                        </li>
+                        {achievementList.map((achievement, index) => (
+                            <li key={index}>
+                                {achievement}
+                            </li>
+                        ))}
                     </ul>
                 </div>
-
-
             </div>
         </section>
     );

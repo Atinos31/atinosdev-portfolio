@@ -1,0 +1,47 @@
+
+{
+  "engineering": {
+    "eyebrow": "Explore My Engineering",
+    "title": "What can we build with technology?",
+    "description": "Explore my experience in web engineering, my developing AI and data specializations, and the interactive experiences I create.",
+    "instruction": "Select a 3D object to explore an engineering discipline.",
+    "disciplinesLabel": "Engineering disciplines",
+    "technologies": "Technologies",
+    "relatedProjects": "Related Projects",
+    "noProjects": "This is a developing area. Project demonstrations will be added as they're completed.",
+    "footer": "Production experience meets continuous learning.",
+    "exploreProjects": "Explore My Projects",
+    "areas": {
+      "web": {
+        "title": "Web Engineering",
+        "subtitle": "Building reliable digital platforms",
+        "description": "Production web applications, frontend and backend systems, CMS development and API integrations."
+      },
+      "ai": {
+        "title": "AI Engineering",
+        "subtitle": "Developing intelligent applications",
+        "description": "Exploring LLM integration, agent workflows and intelligent automation through hands-on Django projects."
+      },
+      "data": {
+        "title": "Data Engineering",
+        "subtitle": "Turning data into useful systems",
+        "description": "Expanding my Python, PostgreSQL and SQL experience into data processing, pipelines and analytics."
+      },
+      "creative": {
+        "title": "Creative Engineering",
+        "subtitle": "Building interactive web experiences",
+        "description": "Combining frontend engineering, React and Three.js to create engaging interactive experiences."
+      }
+    },
+    "projectNames": {
+      "agrinfo": "AGRINFO",
+      "agrinnovators": "Agrinnovators",
+      "aiEmployees": "Django AI Employees — In Progress",
+      "portfolio": "Interactive Developer Portfolio"
+    },
+    "statuses": {
+      "learning": "Learning",
+      "exploring": "Exploring"
+    }
+  }
+}

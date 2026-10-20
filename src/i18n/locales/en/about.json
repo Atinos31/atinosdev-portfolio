@@ -1,0 +1,31 @@
+
+{
+  "about": {
+    "eyebrow": "Get to Know Me",
+    "title": "About Me",
+    "intro": "I'm Sandra Atino, a full-stack developer based in Belgium with professional experience building and maintaining web applications.",
+    "experience": "I previously worked at COLEAD, contributing to production websites and applications using Python, Django, Wagtail, WordPress, PostgreSQL, and JavaScript.",
+    "interests": "My interests include backend engineering, clean application architecture, automation, and AI-powered software.",
+    "approach": "I enjoy solving practical problems, learning new technologies, and building software that is reliable and maintainable.",
+    "downloadCV": "Download My CV",
+    "otherLanguageCV": "French CV",
+    "highlights": {
+      "backend": {
+        "title": "Backend Development",
+        "description": "Building applications and APIs using Python, Django, and PostgreSQL."
+      },
+      "fullstack": {
+        "title": "Full-Stack Development",
+        "description": "Creating responsive interfaces with JavaScript, HTML, CSS, and Tailwind."
+      },
+      "cms": {
+        "title": "CMS Development",
+        "description": "Developing and maintaining websites using Wagtail and WordPress."
+      },
+      "ai": {
+        "title": "AI & Continuous Learning",
+        "description": "Exploring AI agents and practical AI-powered applications using Python."
+      }
+    }
+  }
+}

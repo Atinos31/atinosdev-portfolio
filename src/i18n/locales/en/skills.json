@@ -1,0 +1,57 @@
+
+{
+  "skills": {
+    "eyebrow": "Technologies & Expertise",
+    "title": "My Tech Stack",
+    "description": "Technologies I use to build web applications and backend systems, alongside tools I'm exploring as I expand into AI and data engineering.",
+    "filtersLabel": "Technology filters",
+    "categories": {
+      "all": "All",
+      "backend": "Backend",
+      "frontend": "Frontend",
+      "databases": "Databases",
+      "cms": "CMS",
+      "tools": "Tools & Deployment",
+      "ai": "AI & Data"
+    },
+    "statuses": {
+      "learning": "Learning",
+      "exploring": "Exploring"
+    },
+    "learnAbout": "Learn about {{name}}",
+    "detailsLabel": "{{name}} details",
+    "close": "Close",
+    "notice": "I'm expanding my professional Python and full-stack development experience into AI-powered applications, intelligent workflows and data engineering. Learning and Exploring labels indicate technologies I'm still developing.",
+    "descriptions": {
+      "python": "Backend development, business logic, automation, and Python applications.",
+      "django": "Building web applications, database-backed services, and backend systems.",
+      "php": "Custom WordPress functionality, templates, queries, and integrations.",
+      "rest": "Developing and integrating APIs between web applications and external systems.",
+      "javascript": "Interactive frontend functionality and application behaviour.",
+      "react": "Reusable UI components, state management, and modern frontend applications.",
+      "html": "Semantic page structure and accessible markup.",
+      "css": "Responsive layouts, custom styling, and interface presentation.",
+      "tailwind": "Building responsive interfaces with utility-first CSS.",
+      "bootstrap": "Responsive interface components and layouts.",
+      "jquery": "Custom interactions and dynamic functionality in WordPress websites.",
+      "postgresql": "Relational data modelling, queries, and database-backed Django applications.",
+      "mysql": "SQL queries and relational data storage.",
+      "wordpress": "Custom WordPress development, content structures, and website integrations.",
+      "wagtail": "Building content-managed websites using Django and Wagtail.",
+      "divi": "Custom Divi websites with PHP, JavaScript, and responsive styling.",
+      "acf": "Advanced Custom Fields for structured WordPress content.",
+      "wpml": "Multilingual content and functionality in WordPress.",
+      "git": "Version control, branching, and collaborative development.",
+      "github": "Source repositories, collaboration, and GitHub Actions.",
+      "vite": "Modern React application tooling and production builds.",
+      "docker": "Learning container-based application packaging and deployment.",
+      "llm": "Learning language model API integration, structured outputs, and tool calling.",
+      "agents": "Developing knowledge of AI workflows, agent tools, and automation.",
+      "rag": "Exploring retrieval-augmented generation and document-grounded responses.",
+      "huggingface": "Exploring open models, datasets, Transformers, and inference.",
+      "pandas": "Learning data analysis, cleaning, and transformation with Python.",
+      "vector": "Exploring embeddings and semantic search for AI applications.",
+      "pipelines": "Learning data processing and ETL workflows."
+    }
+  }
+}
