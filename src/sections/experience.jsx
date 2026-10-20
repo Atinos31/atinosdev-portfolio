@@ -155,38 +155,7 @@ export default function Experience() {
                     </ul>
                 </div>
 
-                {/* Technical skills */}
-                <div className="mt-16">
-                    <h3 className="mb-8 text-2xl font-bold text-white">
-                        Technical Skills
-                    </h3>
 
-                    <div
-                        className="grid gap-8 rounded-2xl
-                       border border-white/10 p-6
-                       sm:grid-cols-2 sm:p-8"
-                    >
-                        <SkillGroup
-                            title="Backend Development"
-                            items={technologies.backend}
-                        />
-
-                        <SkillGroup
-                            title="Frontend Development"
-                            items={technologies.frontend}
-                        />
-
-                        <SkillGroup
-                            title="CMS Platforms"
-                            items={technologies.cms}
-                        />
-
-                        <SkillGroup
-                            title="Development Tools"
-                            items={technologies.tools}
-                        />
-                    </div>
-                </div>
             </div>
         </section>
     );
