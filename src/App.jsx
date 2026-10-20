@@ -4,6 +4,9 @@ import Hero from './sections/hero.jsx';
 import Projects from './sections/projects.jsx';
 import Experience from './sections/experience.jsx';
 import About from './sections/about.jsx';
+import KnowledgeGraph from "./components/KnowledgeGraph.jsx";
+import Skills from './sections/skills.jsx';
+
 
 
 
@@ -17,6 +20,8 @@ function App() {
                 <About />
                 <Projects />
                 <Experience />
+                <KnowledgeGraph />
+                <Skills />
 
                 <section
                     id="contact"
