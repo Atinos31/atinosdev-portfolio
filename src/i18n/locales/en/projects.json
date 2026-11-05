@@ -42,11 +42,18 @@
       },
       "ai-employees": {
         "eyebrow": "PERSONAL PROJECT · WORKING PROTOTYPE",
-        "tagline": "VoltHub: a Django store with guardrailed AI customer support",
+        "tagline": "A responsive Django storefront with AI-powered customer support",
+        "screenshotGallery": "VoltHub screenshots",
+        "screenshots": {
+          "storefront": "Product catalog",
+          "mobile": "Responsive mobile layouts",
+          "support": "Order and support chat"
+        },
         "overview": "A working online electronics-store demo where customers can browse products, check out with Stripe test mode, track orders and chat with Aura, a Claude-powered support agent. Refund and damage cases can be escalated to Manager and Risk agents, with code-enforced safeguards; refund approvals flagged as high-risk or above €1,000 are held for human review. Staff can inspect conversations and agent activity in a live dashboard. Policy documents are loaded into ChromaDB; connecting document retrieval to Aura remains on the roadmap.",
         "role": "Independent developer",
         "contributions": [
-          "Built a responsive Django storefront with a product catalog, customer accounts, order history and Stripe Checkout; orders are created only after payment is confirmed.",
+          "Designed and built a responsive storefront UI with product-category filters, a persistent cart, order history and support chat using HTML, CSS and JavaScript.",
+          "Implemented Stripe Checkout; orders are created only after payment is confirmed.",
           "Implemented a shared Claude tool-use loop for Aura, the Manager Agent and the Risk Agent, with order tools scoped to the current conversation.",
           "Added explainable customer-risk signals and code-enforced refund safeguards; approvals flagged as high-risk or above €1,000 are held for human review.",
           "Built a staff-only support dashboard with live agent activity via Server-Sent Events and persistent conversation logs.",

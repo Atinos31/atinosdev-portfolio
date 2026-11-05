@@ -60,11 +60,28 @@ const projects = [
         id: 'ai-employees',
         name: 'Django AI Employees',
         image: `${BASE}images/projects/ai-support.png`,
+        screenshots: [
+            {
+                id: 'storefront',
+                image: `${BASE}images/projects/ai-storefront.png`,
+            },
+            {
+                id: 'mobile',
+                image: `${BASE}images/projects/ai-mobile.png`,
+            },
+            {
+                id: 'support',
+                image: `${BASE}images/projects/ai-support.png`,
+            },
+        ],
         website: 'https://django-ai-employees-production.up.railway.app/',
         github: null,
         technologies: [
             'Python',
             'Django',
+            'HTML',
+            'CSS',
+            'JavaScript',
             'MySQL',
             'Claude API',
             'Stripe Checkout',
@@ -79,8 +96,11 @@ const projects = [
 function ProjectVisual({ project }) {
     const { t } = useTranslation();
     const [imageFailed, setImageFailed] = useState(false);
+    const [activeScreenshotIndex, setActiveScreenshotIndex] = useState(0);
+    const screenshots = project.screenshots ?? [];
+    const activeScreenshot = screenshots[activeScreenshotIndex];
 
-    if (!project.image || imageFailed) {
+    if ((!project.image && !activeScreenshot) || imageFailed) {
         return (
             <div
                 className="flex aspect-video items-center
@@ -110,16 +130,74 @@ function ProjectVisual({ project }) {
     }
 
     return (
-        <img
-            src={project.image}
-            alt={t('projects.imageAlt', {
-                name: project.name,
-            })}
-            onError={() => setImageFailed(true)}
-            className="aspect-video w-full rounded-xl
-                 object-cover object-top"
-            loading="lazy"
-        />
+        <div>
+            <img
+                src={activeScreenshot?.image ?? project.image}
+                alt={
+                    activeScreenshot
+                        ? t(
+                            `projects.items.${project.id}.screenshots.${activeScreenshot.id}`
+                        )
+                        : t('projects.imageAlt', {
+                            name: project.name,
+                        })
+                }
+                onError={() => setImageFailed(true)}
+                className={`w-full rounded-xl ${
+                    activeScreenshot
+                        ? 'aspect-[4/3] bg-white object-contain'
+                        : 'aspect-video object-cover object-top'
+                }`}
+                loading="lazy"
+            />
+            {screenshots.length > 1 && (
+                <div
+                    className="mt-3 grid grid-cols-3 gap-3"
+                    role="group"
+                    aria-label={t(
+                        `projects.items.${project.id}.screenshotGallery`
+                    )}
+                >
+                    {screenshots.map((screenshot, index) => {
+                        const label = t(
+                            `projects.items.${project.id}.screenshots.${screenshot.id}`
+                        );
+
+                        return (
+                            <button
+                                key={screenshot.id}
+                                type="button"
+                                aria-label={label}
+                                aria-pressed={index === activeScreenshotIndex}
+                                onClick={() => {
+                                    setActiveScreenshotIndex(index);
+                                    setImageFailed(false);
+                                }}
+                                className={`overflow-hidden rounded-lg border text-left transition ${
+                                    index === activeScreenshotIndex
+                                        ? 'border-teal-400'
+                                        : 'border-white/10 hover:border-white/40'
+                                } focus-visible:outline-2
+                                   focus-visible:outline-offset-2
+                                   focus-visible:outline-teal-400`}
+                            >
+                                <img
+                                    src={screenshot.image}
+                                    alt=""
+                                    className="aspect-video w-full bg-white
+                                       object-cover object-top"
+                                    loading="lazy"
+                                />
+                                <span className="block truncate px-2 py-1.5
+                                    text-xs text-slate-300">
+                                    {label}
+                                </span>
+                            </button>
+                        );
+                    })}
+                </div>
+            )}
+        </div>
     );
 }
 
