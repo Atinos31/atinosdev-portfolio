@@ -59,10 +59,9 @@ const projects = [
     {
         id: 'ai-employees',
         name: 'Django AI Employees',
-        image: null,
-        website: null,
-        github:
-            'https://github.com/Atinos31/django-ai-employees',
+        image: `${BASE}images/projects/ai-support.png`,
+        website: 'https://django-ai-employees-production.up.railway.app/',
+        github: null,
         technologies: [
             'Python',
             'Django',
