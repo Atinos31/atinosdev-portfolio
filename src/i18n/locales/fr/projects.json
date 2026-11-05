@@ -41,15 +41,16 @@
         ]
       },
       "ai-employees": {
-        "eyebrow": "PROJET PERSONNEL · EN COURS",
-        "tagline": "Créer les bases Django d'un support client assisté par l'IA",
-        "overview": "Un projet personnel Django qui modélise les produits, les commandes, les demandes de remboursement et les conversations de support afin de poser les bases de workflows de support assistés par l'IA. L'intégration de modèles de langage et les workflows contrôlés d'agents IA sont en cours.",
+        "eyebrow": "PROJET PERSONNEL · PROTOTYPE FONCTIONNEL",
+        "tagline": "VoltHub : une boutique Django avec un support client IA sécurisé",
+        "overview": "Une démonstration fonctionnelle de boutique en ligne d'électronique : les clients peuvent parcourir le catalogue, payer en mode test avec Stripe, suivre leurs commandes et échanger avec Aura, un agent de support utilisant Claude. Les demandes de remboursement et les produits endommagés peuvent être transmis aux agents Manager et Risk, avec des garde-fous imposés par le code ; les approbations de remboursement à risque élevé ou supérieures à 1 000 € sont soumises à une vérification humaine. Une interface réservée au personnel affiche les conversations et l'activité des agents en temps réel. Les documents de politique sont chargés dans ChromaDB ; leur utilisation par Aura reste à venir.",
         "role": "Développeuse indépendante",
         "contributions": [
-          "Structuration des applications Django dédiées aux commandes et au support client.",
-          "Création de modèles métier pour les produits, les commandes et les demandes de remboursement.",
-          "Développement des structures de données pour les conversations, les messages et les journaux d'activité des agents.",
-          "Poursuite du travail sur l'intégration de modèles de langage, les workflows d'agents IA et l'automatisation."
+          "Création d'une boutique Django adaptative avec catalogue, comptes clients, historique des commandes et paiement Stripe ; les commandes ne sont créées qu'après confirmation du paiement.",
+          "Mise en place d'une boucle partagée d'utilisation d'outils avec Claude pour Aura, l'agent Manager et l'agent Risk ; les outils sont limités à la commande liée à la conversation.",
+          "Ajout d'indicateurs de risque explicables et de garde-fous de remboursement appliqués par le code ; les approbations à risque élevé ou supérieures à 1 000 € sont soumises à une vérification humaine.",
+          "Création d'un tableau de bord de support réservé au personnel, avec activité des agents en temps réel via Server-Sent Events et journalisation persistante des conversations.",
+          "Ajout de 30 tests automatisés couvrant l'évaluation des risques, les garde-fous de remboursement, les transferts entre agents et le tableau de bord."
         ]
       }
     }

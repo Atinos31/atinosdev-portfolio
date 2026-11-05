@@ -67,10 +67,10 @@ const projects = [
             'Python',
             'Django',
             'MySQL',
-            'ChromaDB',
-            'LangChain',
             'Claude API',
-            'AI Agents — Learning',
+            'Stripe Checkout',
+            'ChromaDB',
+            'Server-Sent Events',
         ],
         accent: '#c084fc',
     },
@@ -400,4 +400,3 @@ export default function Projects() {
         </section>
     );
 }
-

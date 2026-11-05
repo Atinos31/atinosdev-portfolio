@@ -41,15 +41,16 @@
         ]
       },
       "ai-employees": {
-        "eyebrow": "PERSONAL PROJECT · IN PROGRESS",
-        "tagline": "Building a Django foundation for AI-assisted customer support",
-        "overview": "A personal Django project modeling products, orders, refund requests and support conversations as a foundation for AI-assisted support workflows. LLM integration and controlled agent workflows are in progress.",
+        "eyebrow": "PERSONAL PROJECT · WORKING PROTOTYPE",
+        "tagline": "VoltHub: a Django store with guardrailed AI customer support",
+        "overview": "A working online electronics-store demo where customers can browse products, check out with Stripe test mode, track orders and chat with Aura, a Claude-powered support agent. Refund and damage cases can be escalated to Manager and Risk agents, with code-enforced safeguards; refund approvals flagged as high-risk or above €1,000 are held for human review. Staff can inspect conversations and agent activity in a live dashboard. Policy documents are loaded into ChromaDB; connecting document retrieval to Aura remains on the roadmap.",
         "role": "Independent developer",
         "contributions": [
-          "Structured Django applications for orders and support.",
-          "Implemented domain models for products, orders and refund requests.",
-          "Developed conversation, message and agent log data structures.",
-          "Continuing work on LLM integration, agent workflows and automation."
+          "Built a responsive Django storefront with a product catalog, customer accounts, order history and Stripe Checkout; orders are created only after payment is confirmed.",
+          "Implemented a shared Claude tool-use loop for Aura, the Manager Agent and the Risk Agent, with order tools scoped to the current conversation.",
+          "Added explainable customer-risk signals and code-enforced refund safeguards; approvals flagged as high-risk or above €1,000 are held for human review.",
+          "Built a staff-only support dashboard with live agent activity via Server-Sent Events and persistent conversation logs.",
+          "Added 30 automated tests covering risk checks, refund safeguards, multi-agent handoffs and the dashboard."
         ]
       }
     }
