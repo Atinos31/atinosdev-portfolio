@@ -42,8 +42,8 @@
       },
       "ai-employees": {
         "eyebrow": "PERSONAL PROJECT · IN PROGRESS",
-        "tagline": "Exploring intelligent customer support systems",
-        "overview": "A Django project exploring the foundations of AI-assisted customer support, order management and intelligent workflows.",
+        "tagline": "Building a Django foundation for AI-assisted customer support",
+        "overview": "A personal Django project modeling products, orders, refund requests and support conversations as a foundation for AI-assisted support workflows. LLM integration and controlled agent workflows are in progress.",
         "role": "Independent developer",
         "contributions": [
           "Structured Django applications for orders and support.",

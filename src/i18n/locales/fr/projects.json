@@ -42,8 +42,8 @@
       },
       "ai-employees": {
         "eyebrow": "PROJET PERSONNEL · EN COURS",
-        "tagline": "Explorer les systèmes intelligents de support client",
-        "overview": "Un projet Django permettant d'explorer les bases d'un support client assisté par l'IA, de la gestion des commandes et des workflows intelligents.",
+        "tagline": "Créer les bases Django d'un support client assisté par l'IA",
+        "overview": "Un projet personnel Django qui modélise les produits, les commandes, les demandes de remboursement et les conversations de support afin de poser les bases de workflows de support assistés par l'IA. L'intégration de modèles de langage et les workflows contrôlés d'agents IA sont en cours.",
         "role": "Développeuse indépendante",
         "contributions": [
           "Structuration des applications Django dédiées aux commandes et au support client.",
